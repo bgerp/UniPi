@@ -9,71 +9,34 @@ require_once('SDM120.php');
 // SDM630 API.
 require_once('SDM630.php');
 
-/**
- * Example class.
- */
-class ExampleDevice extends Neuron
-{
-
-    /**
-     * MODBUS-RTU device ID.
-     *
-     * @var integer.
-     */ 
-    private $dev_id = 1;
-
-    public function getParam()
-    {
-        return $this->getRegister($this->dev_id, 0);
-    }
-
-    /**
-     * Returns ID of the device.
-     *
-     * @return integer ID of the device.
-     */
-    public function getDeviceID()
-    {
-        return($this->dev_id);
-    }
-
-    /**
-     * Set ID of the device.
-     *
-     * @param integer $dev_id ID of the device.
-     * @return void
-     */
-    public function setDeviceID($dev_id)
-    {
-        $this->dev_id = $dev_id;
-    }
-
-}
+// Start
 
 // From DB.
-$ip = "176.33.1.46";
+$ip = "176.33.1.25";
+//$ip = "10.0.0.111";
 $port = 8080;
-$modbus_id = 2;
+$device_id = 2;
+$uart = "UART_1";
 
 // Master device.
 $neuron = new Neuron($ip, $port);
+// 
+$neuron->update();
+//$neuron->turnLedOff();
+//$neuron->turnLedOn();
+//$neuron->setUartRegister("UART_1", 2, 0, 0);
+//$neuron->setUartRegister("UART_1", 2, 1, 0);
 
+$sdm120_registers_indexes = SDM120::getRegistersIDs();
+$sdm120_registers_data = $neuron->getUartRegisters($uart, $device_id, $sdm120_registers_indexes);
 // Slave device.
-$exampleDevice = new ExampleDevice($ip, $port);
-// Set device ID.
-$exampleDevice->setDeviceID($modbus_id);
-// Update data.
-$exampleDevice->Update();
+$sdm120 = new SDM120($sdm120_registers_data); 
 
-// Slave device.
-$sdm120 = new SDM120($neuron, $modbus_id); 
-// Update data.
-$sdm120->Update();
 
+$sdm630_registers_indexes = SDM630::getRegistersIDs();
+$sdm630_registers_data = $neuron->getUartRegisters($uart, $device_id, $sdm630_registers_indexes);
 // Slave device.
-$sdm630 = new SDM630($neuron, $modbus_id); 
-// Update data.
-$sdm630->Update();
+$sdm630 = new SDM630($sdm630_registers_data); 
 
 ?>
 
@@ -85,17 +48,11 @@ $sdm630->Update();
     </head>
     <body>
         <br>
-        <font size="5">Test</font>
-        <br>
-        Register 0: 
-        <?php echo $exampleDevice->getParam(); ?>
-        <br>
-        <br>
         <font size="5">1 phase</font>
         <br>
         <table>
             <col width="170">
-            <col width="60">
+            <col width="160">
             <col width="60">
             <tr>
                 <th>Name</th>
