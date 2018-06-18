@@ -212,8 +212,6 @@ class Neuron
         return json_decode($response, true); 
     }
 
-
-    
     /**
      * Generate key data for $json_string.
      * This method is directly related to the EVOK REST API.
@@ -238,13 +236,22 @@ class Neuron
         return $uart.'_'.$dev_id.'_'.$value;
     }
 
-    public function turnLedOn()
+    /**
+     * Turn the LED state.
+     * This method is directly related to the EVOK REST API.
+     *
+     * @param integer $index [1-4].
+     * @param integer $state [0-1].
+     * @return string Returns the state of the LED.
+     * @see https://evok.api-docs.io/1.0/rest/get-watchdog-state-watchdog-alias
+     */
+    public function turnLed($index, $state)
     {
         // Create CURL resource.
         $ch = curl_init();
 
         // Set URL.
-        curl_setopt($ch, CURLOPT_URL, 'http://'.$this->ip.':'.$this->port.'/rest/led/1_01');
+        curl_setopt($ch, CURLOPT_URL, 'http://'.$this->ip.':'.$this->port.'/rest/led/1_0'.$index);
 
         // Return the transfer as a string.
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -253,37 +260,18 @@ class Neuron
         curl_setopt($ch, CURLOPT_POST,           1 );
 
         // Fields
-        curl_setopt($ch, CURLOPT_POSTFIELDS,     "value=1" ); 
+        curl_setopt($ch, CURLOPT_POSTFIELDS,     "value=".$state ); 
 
         // $content Contains the output string.
         $content = curl_exec($ch);
 
         // Close curl resource to free up system resources.
-        curl_close($ch);      
+        curl_close($ch);
+
+        // Returns the state of the LED.
+        return $content;
     }
+        
     
-    public function turnLedOff()
-    {
-        // Create CURL resource.
-        $ch = curl_init();
-
-        // Set URL.
-        curl_setopt($ch, CURLOPT_URL, 'http://'.$this->ip.':'.$this->port.'/rest/led/1_01');
-
-        // Return the transfer as a string.
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-        // Type POST.
-        curl_setopt($ch, CURLOPT_POST,           1 );
-
-        // Fields
-        curl_setopt($ch, CURLOPT_POSTFIELDS,     "value=0" ); 
-
-        // $content Contains the output string.
-        $content = curl_exec($ch);
-
-        // Close curl resource to free up system resources.
-        curl_close($ch);      
-    }
     
 }
