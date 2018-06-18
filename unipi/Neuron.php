@@ -218,7 +218,7 @@ class Neuron
      *
      * @param integer Register index.
      * @return string Key of register data.
-     * @see https://evok.api-docs.io/1.0/rest/get-watchdog-state-watchdog-alias
+     * @see https://evok.api-docs.io/1.0/json/get-uart-state-json
      */ 
     private function generateUartCircuit($uart, $dev_id, $register_index)
     {
@@ -243,7 +243,7 @@ class Neuron
      * @param integer $index [1-4].
      * @param integer $state [0-1].
      * @return string Returns the state of the LED.
-     * @see https://evok.api-docs.io/1.0/rest/get-watchdog-state-watchdog-alias
+     * @see https://evok.api-docs.io/1.0/rest/change-uled-state
      */
     public function turnLed($index, $state)
     {
@@ -252,6 +252,42 @@ class Neuron
 
         // Set URL.
         curl_setopt($ch, CURLOPT_URL, 'http://'.$this->ip.':'.$this->port.'/rest/led/1_0'.$index);
+
+        // Return the transfer as a string.
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        // Type POST.
+        curl_setopt($ch, CURLOPT_POST,           1 );
+
+        // Fields
+        curl_setopt($ch, CURLOPT_POSTFIELDS,     "value=".$state ); 
+
+        // $content Contains the output string.
+        $content = curl_exec($ch);
+
+        // Close curl resource to free up system resources.
+        curl_close($ch);
+
+        // Returns the state of the LED.
+        return $content;
+    }
+        
+    /**
+     * Turn the Relay state.
+     * This method is directly related to the EVOK REST API.
+     *
+     * @param integer $index [1-4].
+     * @param integer $state [0-1].
+     * @return string Returns the state of the Relay.
+     * @see https://evok.api-docs.io/1.0/rest/change-relay-state
+     */
+    public function turnRelay($index, $state)
+    {
+        // Create CURL resource.
+        $ch = curl_init();
+
+        // Set URL.
+        curl_setopt($ch, CURLOPT_URL, 'http://'.$this->ip.':'.$this->port.'/rest/relay/1_0'.$index);
 
         // Return the transfer as a string.
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
