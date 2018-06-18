@@ -32,73 +32,81 @@ class SDM120
     const exportReactiveEnergy2 = 79;
     
     /**
-     * Master device.
+     * Content dictionary.
      *
      * @var Neuron
      */    
-    private $master = "";
-
-    /**
-     * MODBUS-RTU device ID.
-     *
-     * @var integer.
-     */ 
-    private $dev_id = 1;
-
+    private $content = array();
+    
     /**
      * Class constructor.
      *
      * @param Neuron $master Master device.
+     * @param string $uart UART interface.
      * @param integer $dev_id modbus device id.
      */
-    public function __construct($master, $dev_id)
+    public function __construct($content)
     {
-        $this->SetMaster($master);
-        $this->SetDeviceID($dev_id);
+        $this->setContetnt($content);
     }
-
+    
     /**
-     * Returns master device.
+     * Get RAW content.
      *
-     * @return Neuron Master device.
+     * @return RAW content.
      */
-    public function getMaster()
+    public function getContetnt()
     {
-        return($this->master);
+        return($this->content);
     }
 
     /**
-     * Set master device.
+     * Set RAW content.
      *
-     * @param Neuron $master Master device.
+     * @param RAW content.
      * @return void
      */
-    public function setMaster($master)
+    public function setContetnt($content)
     {
-        $this->master = $master;
+        $this->content = $content;
     }
 
     /**
-     * Returns ID of the device.
+     * Get registers IDs.
      *
-     * @return integer ID of the device.
+     * @return Registers IDs.
      */
-    public function getDeviceID()
+    public static function getRegistersIDs()
     {
-        return($this->dev_id);
+        // Registers
+        $registers_ids = array(
+            SDM120::volts1, 
+            SDM120::volts2, 
+            SDM120::current1, 
+            SDM120::current2, 
+            SDM120::activePower1, 
+            SDM120::activePower2, 
+            SDM120::apparentPower1, 
+            SDM120::apparentPower2, 
+            SDM120::reactivePower1, 
+            SDM120::reactivePower2, 
+            SDM120::powerFactor1, 
+            SDM120::powerFactor2, 
+            SDM120::frequency1, 
+            SDM120::frequency2, 
+            SDM120::importActiveEnergy1, 
+            SDM120::importActiveEnergy2, 
+            SDM120::exportActiveEnergy1, 
+            SDM120::exportActiveEnergy2, 
+            SDM120::importReactiveEnergy1, 
+            SDM120::importReactiveEnergy2, 
+            SDM120::exportReactiveEnergy1, 
+            SDM120::exportReactiveEnergy2
+            );
+        
+        return $registers_ids;
     }
-
-    /**
-     * Set ID of the device.
-     *
-     * @param integer $dev_id ID of the device.
-     * @return void
-     */
-    public function setDeviceID($dev_id)
-    {
-        $this->dev_id = $dev_id;
-    }
-
+    
     /**
      * Gets voltage value of the device.
      * This method is directly related to the memory map of the SDM120.
@@ -108,8 +116,8 @@ class SDM120
      */    
     public function getVoltage()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM120::volts1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM120::volts2);
+        $reg1 = $this->content[SDM120::volts1];
+        $reg2 = $this->content[SDM120::volts2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -125,8 +133,8 @@ class SDM120
      */ 
     public function getCurrent()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM120::current1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM120::current2);
+        $reg1 = $this->content[SDM120::current1];
+        $reg2 = $this->content[SDM120::current2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -142,8 +150,8 @@ class SDM120
      */
     public function getActivePower()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM120::activePower1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM120::activePower2);
+        $reg1 = $this->content[SDM120::activePower1];
+        $reg2 = $this->content[SDM120::activePower2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -159,8 +167,8 @@ class SDM120
      */
     public function getApparentPower()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM120::apparentPower1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM120::apparentPower2);
+        $reg1 = $this->content[SDM120::apparentPower1];
+        $reg2 = $this->content[SDM120::apparentPower2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -176,8 +184,8 @@ class SDM120
      */
     public function getReactivePower()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM120::reactivePower1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM120::reactivePower2);
+        $reg1 = $this->content[SDM120::reactivePower1];
+        $reg2 = $this->content[SDM120::reactivePower2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -193,8 +201,8 @@ class SDM120
      */
     public function getPowerFactor()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM120::powerFactor1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM120::powerFactor2);
+        $reg1 = $this->content[SDM120::powerFactor1];
+        $reg2 = $this->content[SDM120::powerFactor2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -210,8 +218,8 @@ class SDM120
      */
     public function getFrequency()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM120::frequency1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM120::frequency2);
+        $reg1 = $this->content[SDM120::frequency1];
+        $reg2 = $this->content[SDM120::frequency2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -227,8 +235,8 @@ class SDM120
      */
     public function getImportActiveEnergy()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM120::importActiveEnergy1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM120::importActiveEnergy2);
+        $reg1 = $this->content[SDM120::importActiveEnergy1];
+        $reg2 = $this->content[SDM120::importActiveEnergy2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -244,8 +252,8 @@ class SDM120
      */
     public function getExportActiveEnergy()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM120::exportActiveEnergy1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM120::exportActiveEnergy2);
+        $reg1 = $this->content[SDM120::exportActiveEnergy1];
+        $reg2 = $this->content[SDM120::exportActiveEnergy2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -261,8 +269,8 @@ class SDM120
      */
     public function getImportReactiveEnergy()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM120::importReactiveEnergy1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM120::importReactiveEnergy2);
+        $reg1 = $this->content[SDM120::importReactiveEnergy1];
+        $reg2 = $this->content[SDM120::importReactiveEnergy2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -278,25 +286,14 @@ class SDM120
      */
     public function getExportReactiveEnergy()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM120::exportReactiveEnergy1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM120::exportReactiveEnergy2);
+        $reg1 = $this->content[SDM120::exportReactiveEnergy1];
+        $reg2 = $this->content[SDM120::exportReactiveEnergy2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
         return $filed;
     }
     
-    /**
-     * Make request to the device to update the data.
-     * This method is directly related to the EVOK REST API.
-     *
-     * @see http://www.eastrongroup.com/data/uploads/Eastron_SDM120-Modbus_protocol_V2_3_(1).pdf     
-     */ 
-    public function update()
-    {
-        $this->master->Update();
-    }
-
     /**
      * Convert two registers to float.
      *
@@ -316,5 +313,4 @@ class SDM120
         // Return value.       
         return $unpacked_data[1];
     }
-
 }
