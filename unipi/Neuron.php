@@ -3,7 +3,7 @@
 /**
  * This class is dedicated to transfer information from and to NeuronS series.
  *
- * @see https://evok.api-docs.io/1.0/rest/get-watchdog-state-watchdog-alias
+ * @see https://evok.api-docs.io/1.0/rest
  */
 class Neuron
 {
@@ -97,14 +97,35 @@ class Neuron
      * Make request to the device to update the data.
      * This method is directly related to the EVOK REST API.
      *
-     * @see http://www.eastrongroup.com/data/uploads/Eastron_SDM120-Modbus_protocol_V2_3_(1).pdf     
+     * @see https://evok.api-docs.io/1.0/rest   
      */ 
     public function update()
     {
-        // Get data from the device.
-        $content = file_get_contents('http://'.$this->ip.':'.$this->port.'/rest/all');
+        // Create CURL resource.
+        $ch = curl_init();
+
+        // Set URL.
+        curl_setopt($ch, CURLOPT_URL, 'http://'.$this->ip.':'.$this->port.'/rest/all');
+
+        // Return the transfer as a string.
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        // $response Contains the output string.
+        $response = curl_exec($ch);
+
+        // Get error.
+        $err = curl_error($ch);
+
+        // Close curl resource to free up system resources.
+        curl_close($ch);  
+
+        if ($err)
+        {
+          echo "cURL Error #:" . $err;
+        }        
+        
         // Convert to JSON.
-        $this->json_data = json_decode($content, true);
+        $this->json_data = json_decode($response, true);
     }
 
     /**
@@ -114,30 +135,85 @@ class Neuron
      * @param integer $register Register address of the device.
      * @return integer register value.
      */
-    public function getRegister($dev_id, $register)
+    public function getUartRegister($uart, $dev_id, $register)
     {
         $value = 0;
-
         foreach ($this->json_data as $field)
         {
-            if(isset($field['glob_dev_id']))
+            if(isset($field['circuit']))
             {
-                $glob_dev_id = $field['glob_dev_id'];
-                if(isset($field['circuit']))
+                $circuit = $field['circuit'];
+                if($circuit == $this->generateUartCircuit($uart, $dev_id, $register))        
                 {
-                    $circuit = $field['circuit'];
-                
-                    if($glob_dev_id == $dev_id && $circuit == $this->GenrateRegisterID($register))        
+                    if(isset($field['value']))
                     {
                         $value = $field['value'];
+                        break;
                     }
                 }
             }
         }
-        
+
         return $value;
     }        
 
+    /**
+     * Get registers data of the device.
+     *
+     * @param string $uart Modbus ID address of the device.
+     * @param integer $dev_id Modbus ID address of the device.
+     * @param integer $register Register address of the device.
+     * @return integer register value.
+     */
+    public function getUartRegisters($uart, $dev_id, $registers)
+    {
+        $registers_data = array();
+        
+        foreach ($registers as $index)
+        {
+            $registers_data[$index] = $this->getUartRegister($uart, $dev_id, $index);            
+        }
+        
+        return $registers_data;
+    }
+
+    
+    public function setUartRegister($uart, $dev_id, $register, $value)
+    {
+        // Generate circuit name.
+        $circuit = $this->generateUartCircuit($uart, $dev_id, $register);
+        
+        // Init CURL object.
+        $ch = curl_init();
+
+        curl_setopt_array($ch, array(
+          CURLOPT_URL => "http://".$this->ip.":".$this->port."/rest/register/".$circuit,
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_ENCODING => "",
+          CURLOPT_MAXREDIRS => 10,
+          CURLOPT_TIMEOUT => 30,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => "POST",
+          CURLOPT_POSTFIELDS => "value=".$value,
+        ));
+
+        // 
+        $response = curl_exec($ch);
+        $err = curl_error($ch);
+
+        // Clear CURL object.
+        curl_close($ch);
+
+        if ($err) {
+          echo "cURL Error #:" . $err;
+        }
+        
+        // Convert to JSON.
+        return json_decode($response, true); 
+    }
+
+
+    
     /**
      * Generate key data for $json_string.
      * This method is directly related to the EVOK REST API.
@@ -146,7 +222,7 @@ class Neuron
      * @return string Key of register data.
      * @see https://evok.api-docs.io/1.0/rest/get-watchdog-state-watchdog-alias
      */ 
-    private function genrateRegisterID($register_index)
+    private function generateUartCircuit($uart, $dev_id, $register_index)
     {
         $value = 0;
         
@@ -159,7 +235,55 @@ class Neuron
             $value = $register_index;
         }
         
-        return 'UART_1_2_'.$value;
+        return $uart.'_'.$dev_id.'_'.$value;
     }
 
+    public function turnLedOn()
+    {
+        // Create CURL resource.
+        $ch = curl_init();
+
+        // Set URL.
+        curl_setopt($ch, CURLOPT_URL, 'http://'.$this->ip.':'.$this->port.'/rest/led/1_01');
+
+        // Return the transfer as a string.
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        // Type POST.
+        curl_setopt($ch, CURLOPT_POST,           1 );
+
+        // Fields
+        curl_setopt($ch, CURLOPT_POSTFIELDS,     "value=1" ); 
+
+        // $content Contains the output string.
+        $content = curl_exec($ch);
+
+        // Close curl resource to free up system resources.
+        curl_close($ch);      
+    }
+    
+    public function turnLedOff()
+    {
+        // Create CURL resource.
+        $ch = curl_init();
+
+        // Set URL.
+        curl_setopt($ch, CURLOPT_URL, 'http://'.$this->ip.':'.$this->port.'/rest/led/1_01');
+
+        // Return the transfer as a string.
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        // Type POST.
+        curl_setopt($ch, CURLOPT_POST,           1 );
+
+        // Fields
+        curl_setopt($ch, CURLOPT_POSTFIELDS,     "value=0" ); 
+
+        // $content Contains the output string.
+        $content = curl_exec($ch);
+
+        // Close curl resource to free up system resources.
+        curl_close($ch);      
+    }
+    
 }
