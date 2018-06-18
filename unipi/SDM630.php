@@ -46,73 +46,93 @@ class SDM630
     const phase3PowerFactor2 = 35;
 
     /**
-     * Master device.
+     * Content from slave device.
      *
-     * @var Neuron
+     * @var content
      */    
-    private $master = "";
-
-    /**
-     * MODBUS-RTU device ID.
-     *
-     * @var integer.
-     */ 
-    private $dev_id = 1;
-
+    private $content = array();
+    
     /**
      * Class constructor.
      *
-     * @param Neuron $master Master device.
-     * @param integer $dev_id modbus device id.
+     * @param dictionary $content Content from slave device.
      */
-    public function __construct($master, $dev_id)
+    public function __construct($content)
     {
-        $this->SetMaster($master);
-        $this->SetDeviceID($dev_id);
+        $this->setContetnt($content);
+    }
+    
+    /**
+     * Get RAW content.
+     *
+     * @return RAW content.
+     */
+    public function getContetnt()
+    {
+        return($this->content);
     }
 
     /**
-     * Returns master device.
+     * Set RAW content.
      *
-     * @return Neuron Master device.
+     * @param RAW content.
+     * @return dictionary
      */
-    public function getMaster()
+    public function setContetnt($content)
     {
-        return($this->master);
+        $this->content = $content;
     }
 
     /**
-     * Set master device.
+     * Get registers IDs.
      *
-     * @param Neuron $master Master device.
-     * @return void
+     * @return Registers IDs.
      */
-    public function setMaster($master)
+    public static function getRegistersIDs()
     {
-        $this->master = $master;
+        // Registers
+        $registers_ids = array(
+            SDM630::phase1LineToNeutralVolts1,
+            SDM630::phase1LineToNeutralVolts2,
+            SDM630::phase2LineToNeutralVolts1,
+            SDM630::phase2LineToNeutralVolts2,
+            SDM630::phase3LineToNeutralVolts1,
+            SDM630::phase3LineToNeutralVolts2,
+            SDM630::phase1Current1,
+            SDM630::phase1Current2,
+            SDM630::phase2Current1,
+            SDM630::phase2Current2,
+            SDM630::phase3Current1,
+            SDM630::phase3Current2,
+            SDM630::phase1Power1,
+            SDM630::phase1Power2,
+            SDM630::phase2Power1,
+            SDM630::phase2Power2,
+            SDM630::phase3Power1,
+            SDM630::phase3Power2,
+            SDM630::phase1VoltAmps1,
+            SDM630::phase1VoltAmps2,
+            SDM630::phase2VoltAmps1,
+            SDM630::phase2VoltAmps2,
+            SDM630::phase3VoltAmps1,
+            SDM630::phase3VoltAmps2,
+            SDM630::phase1VoltAmpsReactive1,
+            SDM630::phase1VoltAmpsReactive2,
+            SDM630::phase2VoltAmpsReactive1,
+            SDM630::phase2VoltAmpsReactive2,
+            SDM630::phase3VoltAmpsReactive1,
+            SDM630::phase3VoltAmpsReactive2,
+            SDM630::phase1PowerFactor1,
+            SDM630::phase1PowerFactor2,
+            SDM630::phase2PowerFactor1,
+            SDM630::phase2PowerFactor2,
+            SDM630::phase3PowerFactor1,
+            SDM630::phase3PowerFactor2
+            );
+        
+        return $registers_ids;
     }
-
-    /**
-     * Returns ID of the device.
-     *
-     * @return integer ID of the device.
-     */
-    public function getDeviceID()
-    {
-        return($this->dev_id);
-    }
-
-    /**
-     * Set ID of the device.
-     *
-     * @param integer $dev_id ID of the device.
-     * @return void
-     */
-    public function setDeviceID($dev_id)
-    {
-        $this->dev_id = $dev_id;
-    }
-
+    
     /**
      * Gets Phase 1 line to neutral volts.
      * This method is directly related to the memory map of the SDM630.
@@ -122,8 +142,8 @@ class SDM630
      */    
     public function getPhase1Voltage()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM630::phase1LineToNeutralVolts1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM630::phase1LineToNeutralVolts2);
+        $reg1 = $this->content[SDM630::phase1LineToNeutralVolts1];
+        $reg2 = $this->content[SDM630::phase1LineToNeutralVolts2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -139,8 +159,8 @@ class SDM630
      */    
     public function getPhase2Voltage()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM630::phase2LineToNeutralVolts1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM630::phase2LineToNeutralVolts2);
+        $reg1 = $this->content[SDM630::phase2LineToNeutralVolts1];
+        $reg2 = $this->content[SDM630::phase2LineToNeutralVolts2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -156,8 +176,8 @@ class SDM630
      */    
     public function getPhase3Voltage()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM630::phase3LineToNeutralVolts1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM630::phase3LineToNeutralVolts2);
+        $reg1 = $this->content[SDM630::phase3LineToNeutralVolts1];
+        $reg2 = $this->content[SDM630::phase3LineToNeutralVolts2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -173,8 +193,8 @@ class SDM630
      */ 
     public function getPhase1Current()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM630::phase1Current1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM630::phase1Current2);
+        $reg1 = $this->content[SDM630::phase1Current1];
+        $reg2 = $this->content[SDM630::phase1Current2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -190,8 +210,8 @@ class SDM630
      */ 
     public function getPhase2Current()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM630::phase2Current1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM630::phase2Current2);
+        $reg1 = $this->content[SDM630::phase2Current1];
+        $reg2 = $this->content[SDM630::phase2Current2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -207,8 +227,8 @@ class SDM630
      */ 
     public function getPhase3Current()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM630::phase3Current1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM630::phase3Current2);
+        $reg1 = $this->content[SDM630::phase3Current1];
+        $reg2 = $this->content[SDM630::phase3Current2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -224,8 +244,8 @@ class SDM630
      */
     public function getPhase1Power()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM630::phase1Power1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM630::phase1Power2);
+        $reg1 = $this->content[SDM630::phase1Power1];
+        $reg2 = $this->content[SDM630::phase1Power2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -241,8 +261,8 @@ class SDM630
      */
     public function getPhase2Power()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM630::phase2Power1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM630::phase2Power2);
+        $reg1 = $this->content[SDM630::phase2Power1];
+        $reg2 = $this->content[SDM630::phase2Power2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -258,8 +278,8 @@ class SDM630
      */
     public function getPhase3Power()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM630::phase3Power1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM630::phase3Power2);
+        $reg1 = $this->content[SDM630::phase3Power1];
+        $reg2 = $this->content[SDM630::phase3Power2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -275,8 +295,8 @@ class SDM630
      */
     public function getPhase1VA()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM630::phase1VoltAmps1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM630::phase1VoltAmps2);
+        $reg1 = $this->content[SDM630::phase1VoltAmps1];
+        $reg2 = $this->content[SDM630::phase1VoltAmps2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -292,8 +312,8 @@ class SDM630
      */
     public function getPhase2VA()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM630::phase2VoltAmps1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM630::phase2VoltAmps2);
+        $reg1 = $this->content[SDM630::phase2VoltAmps1];
+        $reg2 = $this->content[SDM630::phase2VoltAmps2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -310,8 +330,8 @@ class SDM630
      */
     public function getPhase3VA()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM630::phase3VoltAmps1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM630::phase3VoltAmps2);
+        $reg1 = $this->content[SDM630::phase3VoltAmps1];
+        $reg2 = $this->content[SDM630::phase3VoltAmps2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -327,8 +347,8 @@ class SDM630
      */
     public function getPhase1VAReactive()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM630::phase1VoltAmpsReactive1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM630::phase1VoltAmpsReactive2);
+        $reg1 = $this->content[SDM630::phase1VoltAmpsReactive1];
+        $reg2 = $this->content[SDM630::phase1VoltAmpsReactive2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -344,8 +364,8 @@ class SDM630
      */
     public function getPhase2VAReactive()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM630::phase2VoltAmpsReactive1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM630::phase2VoltAmpsReactive2);
+        $reg1 = $this->content[SDM630::phase2VoltAmpsReactive1];
+        $reg2 = $this->content[SDM630::phase2VoltAmpsReactive2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -361,8 +381,8 @@ class SDM630
      */
     public function getPhase3VAReactive()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM630::phase3VoltAmpsReactive1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM630::phase3VoltAmpsReactive2);
+        $reg1 = $this->content[SDM630::phase3VoltAmpsReactive1];
+        $reg2 = $this->content[SDM630::phase3VoltAmpsReactive2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -378,8 +398,8 @@ class SDM630
      */
     public function getPhase1PowerFactor()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM630::phase1PowerFactor1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM630::phase1PowerFactor2);
+        $reg1 = $this->content[SDM630::phase1PowerFactor1];
+        $reg2 = $this->content[SDM630::phase1PowerFactor2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -395,8 +415,8 @@ class SDM630
      */
     public function getPhase2PowerFactor()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM630::phase2PowerFactor1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM630::phase2PowerFactor2);
+        $reg1 = $this->content[SDM630::phase2PowerFactor1];
+        $reg2 = $this->content[SDM630::phase2PowerFactor2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
@@ -412,25 +432,14 @@ class SDM630
      */
     public function getPhase3PowerFactor()
     {
-        $reg1 = $this->master->getRegister($this->dev_id, SDM630::phase3PowerFactor1);
-        $reg2 = $this->master->getRegister($this->dev_id, SDM630::phase3PowerFactor2);
+        $reg1 = $this->content[SDM630::phase3PowerFactor1];
+        $reg2 = $this->content[SDM630::phase3PowerFactor2];
         
         $filed = $this->registersToFlaot($reg1, $reg2);
         
         return $filed;
     }
     
-    /**
-     * Make request to the device to update the data.
-     * This method is directly related to the EVOK REST API.
-     *
-     * @see http://www.eastrongroup.com/data/uploads/Eastron_SDM120-Modbus_protocol_V2_3_(1).pdf     
-     */ 
-    public function update()
-    {
-        $this->master->Update();
-    }
-
     /**
      * Convert two registers to float.
      *
