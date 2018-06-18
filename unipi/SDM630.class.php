@@ -59,6 +59,7 @@ class eastrongroup_SDM630 extends sens2_ProtoDriver
         
         // Стойности по подразбиране
         $form->setDefault('port', 8080);
+        $form->setDefault('uart', 'UART_1');
         $form->setDefault('unit', 2);
     }
     
@@ -71,10 +72,15 @@ class eastrongroup_SDM630 extends sens2_ProtoDriver
         // Създай източник на дани.
         $neuron = new Neuron($config->ip, $config->port);
         
-        // Създай уред.
-        $sdm630 = new SDM630($neuron, $config->unit); 
-        // Вземи данните от уреда.
-        $sdm630->Update();
+        // Вземи необходимите регистри.
+        $sdm630_registers_indexes = SDM630::getRegistersIDs();
+        
+        // Вземи данните за регистрите от източника.
+        $sdm630_registers_data = $neuron->getUartRegisters($config->uart, $config->unit, $sdm630_registers_indexes);
+        
+        // Създай уред и подай данните от регистрите.
+        $sdm630 = new SDM630($sdm630_registers_data); 
+
         
         // Прочитаме изчерпаната до сега мощност
         $res['Phase1LineToNeutralVolts'] = $sdm630->getPhase1Voltage();
