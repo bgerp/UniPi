@@ -1,4 +1,11 @@
 <?php
+
+// Neuron API.
+require_once('Neuron.php');
+
+// SDM120 API.
+require_once('SDM120.php');
+
 /**
  * Драйвер за електромер Eastrongroup SDM120
  *
@@ -63,10 +70,12 @@ class eastrongroup_SDM120 extends sens2_ProtoDriver
     {
         $form->FNC('ip', 'ip', 'caption=IP,hint=Въведете IP адреса на устройството, input, mandatory');
         $form->FNC('port', 'int(5)', 'caption=Port,hint=Порт, input, mandatory,value=8080');
+        $form->FNC('uart', 'int(5)', 'caption=UART,hint=RS485 порт, input, mandatory,value=UART_1');
         $form->FNC('unit', 'int(5)', 'caption=Unit,hint=Unit, input, mandatory,value=2');
         
         // Стойности по подразбиране
         $form->setDefault('port', 8080);
+        $form->setDefault('uart', 'UART_1');
         $form->setDefault('unit', 2);
     }
     
@@ -75,16 +84,20 @@ class eastrongroup_SDM120 extends sens2_ProtoDriver
      * Връща масив със стойностите на изразходваната активна мощност
      */
     function readInputs($inputs, $config, &$persistentState)
-    {        
+    {
         // Създай източник на дани.
         $neuron = new Neuron($config->ip, $config->port);
         
-        // Създай уред.
-        $sdm120 = new SDM120($neuron, $config->unit); 
-        // Вземи данните от уреда.
-        $sdm120->Update();
+        // Вземи необходимите регистри.
+        $sdm120_registers_indexes = SDM120::getRegistersIDs();
         
-        // Прочитаме изчерпаната до сега мощност
+        // Вземи данните за регистрите от източника.
+        $sdm120_registers_data = $neuron->getUartRegisters($config->uart, $config->unit, $sdm120_registers_indexes);
+        
+        // Създай уред и подай данните от регистрите.
+        $sdm120 = new SDM120($sdm120_registers_data); 
+        
+        // Прочитаме изчерпаната до сега информация.
         $res['Voltage'] = $sdm120->getVoltage();
         $res['Current'] = $sdm120->getCurrent();
         $res['ActivePower'] = $sdm120->getActivePower();
