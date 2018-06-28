@@ -11,7 +11,7 @@ class Neuron
     /**
      * JSON data container.
      *
-     * @var structure
+     * @var object
      */
     private $json_data = '';
 
@@ -42,6 +42,16 @@ class Neuron
     }
 
     /**
+     * Returns JSON response of the device.
+     *
+     * @return object Response of the device.
+     */
+    public function getJsonData()
+    {
+        return $this->json_data;
+    }
+
+    /**
      * Returns IP address of the device.
      *
      * @return string IP address of the device.
@@ -55,7 +65,6 @@ class Neuron
      * Set IP address of the device.
      *
      * @param string $ip IP address of the device.
-     * @return void
      */
     public function setIp($ip)
     {
@@ -65,7 +74,7 @@ class Neuron
     /**
      * Returns port of the device.
      *
-     * @return integer Port of the device.
+     * @return string Port of the device.
      */
     public function getPort()
     {
@@ -76,7 +85,6 @@ class Neuron
      * Set port of the device.
      *
      * @param integer $port Port of the device.
-     * @return void
      */
     public function setPort($port)
     {
@@ -84,21 +92,11 @@ class Neuron
     }
 
     /**
-     * Returns raw JSON data of the device.
-     *
-     * @return JSON data of the device.
-     */
-    public function getRawJSON()
-    {
-        return($this->json_data);
-    }
-
-    /**
      * Make request to the device to update the data.
      * This method is directly related to the EVOK REST API.
      *
-     * @see https://evok.api-docs.io/1.0/rest   
-     */ 
+     * @see https://evok.api-docs.io/1.0/rest
+     */
     public function update()
     {
         // Create CURL resource.
@@ -133,11 +131,13 @@ class Neuron
      *
      * @param integer $dev_id Modbus ID address of the device.
      * @param integer $register Register address of the device.
-     * @return integer register value.
+     * @return string Register value.
      */
     public function getUartRegister($uart, $dev_id, $register)
     {
+        /** @var integer UART register value. $value */
         $value = 0;
+
         foreach ($this->json_data as $field)
         {
             if(isset($field['circuit']))
@@ -155,29 +155,43 @@ class Neuron
         }
 
         return $value;
-    }        
+    }
 
     /**
-     * Get registers data of the device.
+     * Get registers data of the UART device.
      *
-     * @param string $uart Modbus ID address of the device.
+     * @param string $uart UART interface.
      * @param integer $dev_id Modbus ID address of the device.
-     * @param integer $register Register address of the device.
-     * @return integer register value.
+     * @param integer $registers Modbus Registers address of the device.
+     * @return array Registers values.
      */
     public function getUartRegisters($uart, $dev_id, $registers)
     {
-        $registers_data = array();
-        
-        foreach ($registers as $index)
+        /** @var array Registers values. $values */
+        $values = array();
+
+        if (empty($registers))
         {
-            $registers_data[$index] = $this->getUartRegister($uart, $dev_id, $index);            
+            throw new InvalidArgumentException("Invalid registers.");
         }
-        
-        return $registers_data;
+
+        foreach ($registers as $register)
+        {
+            $values[$register] = $this->getUartRegister($uart, $dev_id, $register);
+        }
+
+        return $values;
     }
 
-    
+    /**
+     * Get register data of the UART device.
+     *
+     * @param string $uart UART interface.
+     * @param integer $dev_id Modbus ID address of the device.
+     * @param integer $register Modbus register address of the device.
+     * @param integer $value Modbus register value to be set.
+     * @return mixed JSON response data.
+     */
     public function setUartRegister($uart, $dev_id, $register, $value)
     {
         // Generate circuit name.
@@ -216,21 +230,23 @@ class Neuron
      * Generate key data for $json_string.
      * This method is directly related to the EVOK REST API.
      *
-     * @param integer Register index.
-     * @return string Key of register data.
+     * @param string $uart UART interface.
+     * @param integer $dev_id Modbus ID address of the device.
+     * @param integer $register Modbus Registers address of the device.
+     * @return string Circuit
      * @see https://evok.api-docs.io/1.0/json/get-uart-state-json
-     */ 
-    private function generateUartCircuit($uart, $dev_id, $register_index)
+     */
+    private function generateUartCircuit($uart, $dev_id, $register)
     {
         $value = 0;
         
-        if($register_index < 10)
+        if($register < 10)
         {
-            $value = '0'.$register_index;
+            $value = '0'.$register;
         }
         else
         {
-            $value = $register_index;
+            $value = $register;
         }
         
         return $uart.'_'.$dev_id.'_'.$value;
@@ -307,7 +323,41 @@ class Neuron
         // Returns the state of the LED.
         return $content;
     }
-        
-    
-    
+             
+    /**
+     * Turn the analog output state.
+     * This method is directly related to the EVOK REST API.
+     *
+     * @param integer $index [1].
+     * @param integer $state [0-1].
+     * @return string Returns the state of the Relay.
+     * @see https://evok.api-docs.io/1.0/rest/change-output-state-relay-alias
+     */
+    public function turnOutput($index, $state)
+    {
+        // Create CURL resource.
+        $ch = curl_init();
+
+        // Set URL.
+        curl_setopt($ch, CURLOPT_URL, 'http://' . $this->ip . ':' . $this->port . '/rest/output/1_0' . $index);
+
+        // Return the transfer as a string.
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        // Type POST.
+        curl_setopt($ch, CURLOPT_POST, 1);
+
+        // Fields
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "value=" . $state);
+
+        // $content Contains the output string.
+        $content = curl_exec($ch);
+
+        // Close curl resource to free up system resources.
+        curl_close($ch);
+
+        // Returns the state of the LED.
+        return $content;
+    }
+
 }
