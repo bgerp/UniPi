@@ -22,7 +22,17 @@ class SDM120
         "ImportActiveEnergy" => [72, 73],
         "ExportActiveEnergy" => [74, 75],
         "ImportReactiveEnergy" => [76, 77],
-        "ExportReactiveEnergy" => [78, 79]
+        "ExportReactiveEnergy" => [78, 79],
+        "TotalSystemPowerDemand" => [84, 85],
+        "MaximumTotalSystemPowerDemand" => [86, 87],
+        "ImportSystemPowerDemand" => [88, 89],
+        "MaximumImportSystemPowerDemand" => [90, 91],
+        "ExportSystemPowerDemand" => [92, 93],
+        "MaximumExportSystemPowerDemand" => [94, 95],
+        "CurrentDemand." => [257, 258],
+        "MaximumCurrentDemand." => [263, 264],
+        "TotalActiveEnergy" => [341, 342],
+        "TotalReactiveEnergy" => [343, 344],
     ];
 
     /**
