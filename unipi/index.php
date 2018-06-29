@@ -194,16 +194,16 @@ $neuron->turnRelay(4, 0);
             </tr>
             <tr>
                 <td>Volt amps.</td>
-                <td><?php echo number_format($sdm630_parameters_values['Phase1VA'], 3); ?></td>
-                <td><?php echo number_format($sdm630_parameters_values['Phase2VA'], 3); ?></td>
-                <td><?php echo number_format($sdm630_parameters_values['Phase3VA'], 3); ?></td>
+                <td><?php echo number_format($sdm630_parameters_values['Phase1VoltAmps'], 3); ?></td>
+                <td><?php echo number_format($sdm630_parameters_values['Phase2VoltAmps'], 3); ?></td>
+                <td><?php echo number_format($sdm630_parameters_values['Phase3VoltAmps'], 3); ?></td>
                 <td>[VA]<td>
             </tr>
             <tr>
                 <td>Volt amps reactive</td>
-                <td><?php echo number_format($sdm630_parameters_values['Phase1VAReactive'], 3); ?></td>
-                <td><?php echo number_format($sdm630_parameters_values['Phase2VAReactive'], 3); ?></td>
-                <td><?php echo number_format($sdm630_parameters_values['Phase3VAReactive'], 3); ?></td>
+                <td><?php echo number_format($sdm630_parameters_values['Phase1VoltAmpsReactive'], 3); ?></td>
+                <td><?php echo number_format($sdm630_parameters_values['Phase2VoltAmpsReactive'], 3); ?></td>
+                <td><?php echo number_format($sdm630_parameters_values['Phase3VoltAmpsReactive'], 3); ?></td>
                 <td>[VAr]<td>
             </tr>
             <tr>
