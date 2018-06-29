@@ -11,29 +11,29 @@ class SDM120
      * @var array Registers description. Page 5 - 6.
      * @see http://www.eastrongroup.com/data/uploads/Eastron_SDM120-Modbus_protocol_V2_3_(1).pdf
      */
-    const registers = [
-        "Voltage" => [0, 1],
-        "Current" => [6, 7],
-        "ActivePower" => [12, 13],
-        "ApparentPower" => [18, 19],
-        "ReactivePower" => [24, 25],
-        "PowerFactor" => [30, 31],
-        "Frequency" => [70, 71],
-        "ImportActiveEnergy" => [72, 73],
-        "ExportActiveEnergy" => [74, 75],
-        "ImportReactiveEnergy" => [76, 77],
-        "ExportReactiveEnergy" => [78, 79],
-        "TotalSystemPowerDemand" => [84, 85],
-        "MaximumTotalSystemPowerDemand" => [86, 87],
-        "ImportSystemPowerDemand" => [88, 89],
-        "MaximumImportSystemPowerDemand" => [90, 91],
-        "ExportSystemPowerDemand" => [92, 93],
-        "MaximumExportSystemPowerDemand" => [94, 95],
-        "CurrentDemand." => [257, 258],
-        "MaximumCurrentDemand." => [263, 264],
-        "TotalActiveEnergy" => [341, 342],
-        "TotalReactiveEnergy" => [343, 344],
-    ];
+    const registers = array(
+        "Voltage" => array(0, 1),
+        "Current" => array(6, 7),
+        "ActivePower" => array(12, 13),
+        "ApparentPower" => array(18, 19),
+        "ReactivePower" => array(24, 25),
+        "PowerFactor" => array(30, 31),
+        "Frequency" => array(70, 71),
+        "ImportActiveEnergy" => array(72, 73),
+        "ExportActiveEnergy" => array(74, 75),
+        "ImportReactiveEnergy" => array(76, 77),
+        "ExportReactiveEnergy" => array(78, 79),
+        "TotalSystemPowerDemand" => array(84, 85),
+        "MaximumTotalSystemPowerDemand" => array(86, 87),
+        "ImportSystemPowerDemand" => array(88, 89),
+        "MaximumImportSystemPowerDemand" => array(90, 91),
+        "ExportSystemPowerDemand" => array(92, 93),
+        "MaximumExportSystemPowerDemand" => array(94, 95),
+        "CurrentDemand." => array(257, 258),
+        "MaximumCurrentDemand." => array(263, 264),
+        "TotalActiveEnergy" => array(341, 342),
+        "TotalReactiveEnergy" => array(343, 344),
+    );
 
     /**
      * Get registers IDs.
@@ -43,7 +43,7 @@ class SDM120
     public static function getRegistersIDs()
     {
         /** @var array Registers IDs $registers_ids */
-        $registers_ids = [];
+        $registers_ids = array();
         
         foreach(SDM120::registers as $key => $value)
         {
