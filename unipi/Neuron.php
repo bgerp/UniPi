@@ -142,8 +142,7 @@ class Neuron
         {
             if(isset($field['circuit']))
             {
-                $circuit = $field['circuit'];
-                if($circuit == $this->generateUartCircuit($uart, $dev_id, $register))        
+                if($field['circuit'] == $this->generateUartCircuit($uart, $dev_id, $register))
                 {
                     if(isset($field['value']))
                     {

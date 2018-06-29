@@ -1,3 +1,4 @@
-# Hardware definitions for **SDM120** and **SDM630**
+# Хардуерни дефиниции
 - SDM120
 - SDM630
+

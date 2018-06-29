@@ -1,3 +1,3 @@
-# PHP Drivers for **SDM120** and **SDM630**
+# PHP Драйвери
 - SDM120
 - SDM630
