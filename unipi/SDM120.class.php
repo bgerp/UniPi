@@ -87,28 +87,28 @@ class eastrongroup_SDM120 extends sens2_ProtoDriver
     {
         // Създай източник на дани.
         $neuron = new Neuron($config->ip, $config->port);
-        
-        // Вземи необходимите регистри.
-        $sdm120_registers_indexes = SDM120::getRegistersIDs();
-        
-        // Вземи данните за регистрите от източника.
-        $sdm120_registers_data = $neuron->getUartRegisters($config->uart, $config->unit, $sdm120_registers_indexes);
-        
-        // Създай уред и подай данните от регистрите.
-        $sdm120 = new SDM120($sdm120_registers_data); 
-        
+
+        /** @var Вземи необходимите регистри. $sdm120_registers_indexes */
+        $sdm120_registers_ids = SDM120::getRegistersIDs();
+
+        /** @var Вземи данните за регистрите от източника. $sdm120_registers_values */
+        $sdm120_registers_values = $neuron->getUartRegisters($config->uart, $config->unit, $sdm120_registers_ids);
+
+        /** @var Parameters values. $sdm120_parameters_values */
+        $sdm120_parameters_values = SDM120::getParameters($sdm120_registers_values);
+
         // Прочитаме изчерпаната до сега информация.
-        $res['Voltage'] = $sdm120->getVoltage();
-        $res['Current'] = $sdm120->getCurrent();
-        $res['ActivePower'] = $sdm120->getActivePower();
-        $res['ApparentPower'] = $sdm120->getApparentPower();
-        $res['ReactivePower'] = $sdm120->getReactivePower();
-        $res['PowerFactor'] = $sdm120->getPowerFactor();
-        $res['Frequency'] = $sdm120->getFrequency();
-        $res['ImportActiveEnergy'] = $sdm120->getImportActiveEnergy();
-        $res['ExportActiveEnergy'] = $sdm120->getExportActiveEnergy();
-        $res['ImportReactiveEnergy'] = $sdm120->getImportActiveEnergy();
-        $res['ExportReactiveEnergy'] = $sdm120->getExportReactiveEnergy();
+        $res['Voltage'] = $sdm120_parameters_values['Voltage'];
+        $res['Current'] = $sdm120_parameters_values['Current'];
+        $res['ActivePower'] = $sdm120_parameters_values['ActivePower'];
+        $res['ApparentPower'] = $sdm120_parameters_values['ApparentPower'];
+        $res['ReactivePower'] = $sdm120_parameters_values['ReactivePower'];
+        $res['PowerFactor'] = $sdm120_parameters_values['PowerFactor'];
+        $res['Frequency'] = $sdm120_parameters_values['Frequency'];
+        $res['ImportActiveEnergy'] = $sdm120_parameters_values['ImportActiveEnergy'];
+        $res['ExportActiveEnergy'] = $sdm120_parameters_values['ExportActiveEnergy'];
+        $res['ImportReactiveEnergy'] = $sdm120_parameters_values['ImportReactiveEnergy'];
+        $res['ExportReactiveEnergy'] = $sdm120_parameters_values['ExportReactiveEnergy'];
         
         if (empty($addresses)) {
             return "Грешка при четене от {$config->ip}";
