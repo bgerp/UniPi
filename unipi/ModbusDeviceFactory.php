@@ -4,7 +4,9 @@ require_once ("ModbusDataTypes.php");
 require_once ("ModbusParameter.php");
 require_once ("ModbusDevice.php");
 
-
+/**
+ * This class is dedicated to generate concrete modbus device.
+ */
 class ModbusDeviceFactory
 {
 

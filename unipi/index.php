@@ -39,6 +39,7 @@ $ledon = $neuron->turnOutput(1, 0);
 
 $sdm120 = ModbusDeviceFactory::SDM120();
 $sdm360 = ModbusDeviceFactory::SDM630();
+$delcos_pro = ModbusDeviceFactory::DelcosPro();
 
 echo "<br>";
 try

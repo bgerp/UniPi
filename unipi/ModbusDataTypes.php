@@ -2,6 +2,9 @@
 
 require_once ("Data\BasicEnum.php");
 
+/**
+ * This class is dedicated to describe one modbus data types.
+ */
 abstract class ModbusDataTypes extends BasicEnum
 {
     const UINT16_T = 'uint16_t';
