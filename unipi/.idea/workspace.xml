@@ -23,21 +23,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModbusDataTypes.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ModbusDataTypes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ModbusDataTypes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+            <state relative-caret-position="238">
+              <caret line="14" column="16" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModbusDeviceFactory.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ModbusDeviceFactory.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ModbusDeviceFactory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3026">
-              <caret line="178" column="44" selection-start-line="178" selection-start-column="44" selection-end-line="178" selection-end-column="44" />
+            <state relative-caret-position="781">
+              <caret line="202" column="151" selection-start-line="202" selection-start-column="151" selection-end-line="202" selection-end-column="151" />
               <folding>
+                <element signature="e#181#341#0#PHP" />
+                <element signature="n#SDM120#0;n#ModbusDeviceFactory#0;n#!!top" />
+                <element signature="e#2808#2941#0#PHP" />
+                <element signature="n#SDM630#0;n#ModbusDeviceFactory#0;n#!!top" />
+                <element signature="e#15399#15422#0#PHP" />
                 <element signature="n#makeDevice#0;n#ModbusDeviceFactory#0;n#!!top" />
               </folding>
             </state>
@@ -96,9 +101,9 @@
         <option value="$PROJECT_DIR$/hw_definitions/README.md" />
         <option value="$PROJECT_DIR$/ModbusDevice.php" />
         <option value="$PROJECT_DIR$/ModbusRegister.php" />
-        <option value="$PROJECT_DIR$/ModbusDeviceFactory.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/ModbusDataTypes.php" />
+        <option value="$PROJECT_DIR$/ModbusDeviceFactory.php" />
       </list>
     </option>
   </component>
@@ -172,12 +177,12 @@
       <workItem from="1529938602506" duration="23532000" />
       <workItem from="1530686650489" duration="613000" />
       <workItem from="1531309667153" duration="11000" />
-      <workItem from="1531382930024" duration="12348000" />
+      <workItem from="1531382930024" duration="13137000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36504000" />
+    <option name="totallyTimeSpent" value="37293000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
@@ -240,7 +245,7 @@
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="13" />
+      <option name="time" value="15" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -353,16 +358,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ModbusDeviceFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3026">
-          <caret line="178" column="44" selection-start-line="178" selection-start-column="44" selection-end-line="178" selection-end-column="44" />
-          <folding>
-            <element signature="n#makeDevice#0;n#ModbusDeviceFactory#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ModbusParameter.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -398,8 +393,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ModbusDataTypes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+        <state relative-caret-position="238">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModbusDeviceFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="781">
+          <caret line="202" column="151" selection-start-line="202" selection-start-column="151" selection-end-line="202" selection-end-column="151" />
+          <folding>
+            <element signature="e#181#341#0#PHP" />
+            <element signature="n#SDM120#0;n#ModbusDeviceFactory#0;n#!!top" />
+            <element signature="e#2808#2941#0#PHP" />
+            <element signature="n#SDM630#0;n#ModbusDeviceFactory#0;n#!!top" />
+            <element signature="e#15399#15422#0#PHP" />
+            <element signature="n#makeDevice#0;n#ModbusDeviceFactory#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
