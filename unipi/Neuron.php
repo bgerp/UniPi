@@ -8,6 +8,8 @@
 class Neuron
 {
 
+    #region Variables
+
     /**
      * JSON data container.
      *
@@ -29,6 +31,10 @@ class Neuron
      */ 
     private $port = 80;
 
+    #endregion
+
+    #region Constructor
+
     /**
      * Class constructor.
      *
@@ -40,6 +46,10 @@ class Neuron
         $this->setIp($ip);
         $this->setPort($port);
     }
+
+    #endregion
+
+    #region Getters and Setters
 
     /**
      * Returns JSON response of the device.
@@ -90,6 +100,8 @@ class Neuron
     {
         $this->port = $port;
     }
+
+    #endregion
 
     /**
      * Make request to the device to update the data.

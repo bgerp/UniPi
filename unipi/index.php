@@ -9,6 +9,8 @@ require_once('SDM120.php');
 // SDM630 API.
 require_once('SDM630.php');
 
+//
+require_once ('modbusDeviceFactory.php');
 // Start
 
 // From DB.
@@ -35,16 +37,20 @@ $ledon = $neuron->turnOutput(1, 0);
 //$neuron->setUartRegister("UART_1", 2, 0, 0);
 //$neuron->setUartRegister("UART_1", 2, 1, 0);
 
+$sdm120 = ModbusDeviceFactory::SDM120();
+$sdm360 = ModbusDeviceFactory::SDM630();
+
+echo "<br>";
 try
 {
     /** @var Modbus registers IDs. $sdm120_registers_indexes */
-    $sdm120_registers_ids = SDM120::getRegistersIDs();
+    $sdm120_registers_ids = $sdm120->getRegistersIDs();
 
     /** @var Modbus registers values. $sdm120_registers_values */
     $sdm120_registers_values = $neuron->getUartRegisters($uart, $device_id, $sdm120_registers_ids);
 
     /** @var Parameters values. $sdm120_parameters_values */
-    $sdm120_parameters_values = SDM120::getParammeters($sdm120_registers_values);
+    $sdm120_parameters_values = $sdm120->getParametersValues($sdm120_registers_values);
 }
 catch(Exception $e)
 {
@@ -55,13 +61,13 @@ $sdm630_registers_values = [];
 try
 {
     /** @var Modbus registers IDs. $sdm630_registers_ids */
-    $sdm630_registers_ids = SDM630::getRegistersIDs();
+    $sdm630_registers_ids = $sdm360->getRegistersIDs();
 
     /** @var Modbus registers values. $sdm630_registers_values */
     $sdm630_registers_values = $neuron->getUartRegisters($uart, $device_id, $sdm630_registers_ids);
 
     /** @var Parameters values. $sdm630_parameters_values */
-    $sdm630_parameters_values = SDM630::getParammeters($sdm630_registers_values);
+    $sdm630_parameters_values = $sdm360->getParametersValues($sdm630_registers_values);
 }
 catch(Exception $e)
 {
