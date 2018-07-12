@@ -68,15 +68,24 @@
       <file leaf-file-name="ModbusDevice.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ModbusDevice.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="190" lean-forward="true" selection-start-line="190" selection-end-line="190" />
+            <state relative-caret-position="289">
+              <caret line="239" lean-forward="true" selection-start-line="239" selection-end-line="239" />
               <folding>
                 <element signature="e#119#136#0#PHP" />
                 <element signature="e#251#270#0#PHP" />
                 <element signature="e#488#515#0#PHP" />
                 <element signature="e#799#821#0#PHP" />
+                <element signature="e#827#897#0#PHP" />
                 <element signature="n#getRegistersIDs#0;n#ModbusDevice#0;n#!!top" />
+                <element signature="e#1494#1569#0#PHP" />
+                <element signature="n#getParametersNames#0;n#ModbusDevice#0;n#!!top" />
+                <element signature="e#2064#2202#0#PHP" />
+                <element signature="n#getParameterValue#0;n#ModbusDevice#0;n#!!top" />
+                <element signature="e#3177#3292#0#PHP" />
                 <element signature="n#getParametersValues#0;n#ModbusDevice#0;n#!!top" />
+                <element signature="e#3912#3935#0#PHP" />
+                <element signature="e#3929#4101#0#PHP" />
+                <element signature="n#convertParameter#0;n#ModbusDevice#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -85,8 +94,8 @@
       <file leaf-file-name="ModbusDataTypes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ModbusDataTypes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="51">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -139,9 +148,9 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/ModbusDeviceFactory.php" />
         <option value="$PROJECT_DIR$/Data/BasicEnum.php" />
-        <option value="$PROJECT_DIR$/ModbusDataTypes.php" />
         <option value="$PROJECT_DIR$/evok.conf" />
         <option value="$PROJECT_DIR$/hw_definitions/README.md" />
+        <option value="$PROJECT_DIR$/ModbusDataTypes.php" />
         <option value="$PROJECT_DIR$/ModbusDevice.php" />
       </list>
     </option>
@@ -172,11 +181,6 @@
             <path>
               <item name="unipi" type="b2602c69:ProjectViewProjectNode" />
               <item name="unipi" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="unipi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="unipi" type="462c0819:PsiDirectoryNode" />
-              <item name="hw_definitions" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -221,12 +225,12 @@
       <workItem from="1529938602506" duration="23532000" />
       <workItem from="1530686650489" duration="613000" />
       <workItem from="1531309667153" duration="11000" />
-      <workItem from="1531382930024" duration="10996000" />
+      <workItem from="1531382930024" duration="12008000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35152000" />
+    <option name="totallyTimeSpent" value="36164000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
@@ -282,7 +286,14 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="11" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/ModbusDevice.php</url>
+          <line>26</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="13" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -356,13 +367,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Delcos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="38" column="33" lean-forward="true" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
@@ -433,24 +437,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Delcos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1269">
+          <caret line="38" column="33" lean-forward="true" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ModbusDataTypes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ModbusDevice.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="190" lean-forward="true" selection-start-line="190" selection-end-line="190" />
+        <state relative-caret-position="289">
+          <caret line="239" lean-forward="true" selection-start-line="239" selection-end-line="239" />
           <folding>
             <element signature="e#119#136#0#PHP" />
             <element signature="e#251#270#0#PHP" />
             <element signature="e#488#515#0#PHP" />
             <element signature="e#799#821#0#PHP" />
+            <element signature="e#827#897#0#PHP" />
             <element signature="n#getRegistersIDs#0;n#ModbusDevice#0;n#!!top" />
+            <element signature="e#1494#1569#0#PHP" />
+            <element signature="n#getParametersNames#0;n#ModbusDevice#0;n#!!top" />
+            <element signature="e#2064#2202#0#PHP" />
+            <element signature="n#getParameterValue#0;n#ModbusDevice#0;n#!!top" />
+            <element signature="e#3177#3292#0#PHP" />
             <element signature="n#getParametersValues#0;n#ModbusDevice#0;n#!!top" />
+            <element signature="e#3912#3935#0#PHP" />
+            <element signature="e#3929#4101#0#PHP" />
+            <element signature="n#convertParameter#0;n#ModbusDevice#0;n#!!top" />
           </folding>
         </state>
       </provider>
