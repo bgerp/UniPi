@@ -23,79 +23,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModbusDeviceFactory.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ModbusDeviceFactory.php">
+      <file leaf-file-name="ModbusRegister.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ModbusRegister.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="119">
+              <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
               <folding>
-                <element signature="e#151#173#0#PHP" />
-                <element signature="e#151#311#0#PHP" />
-                <element signature="n#makeSDM120#0;n#ModbusDeviceFactory#0;n#!!top" />
-                <element signature="e#2758#2891#0#PHP" />
-                <element signature="n#SDM630#0;n#ModbusDeviceFactory#0;n#!!top" />
-                <element signature="e#12499#12581#0#PHP" />
-                <element signature="n#DelcosPro#0;n#ModbusDeviceFactory#0;n#!!top" />
-                <element signature="e#15402#15425#0#PHP" />
-                <element signature="e#15354#15420#0#PHP" />
-                <element signature="n#makeDevice#0;n#ModbusDeviceFactory#0;n#!!top" />
+                <element signature="e#121#138#0#PHP" />
+                <element signature="e#550#569#0#PHP" />
+                <element signature="e#1057#1084#0#PHP" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SDM120.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SDM120.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" selection-start-line="10" selection-end-line="12" />
-              <folding>
-                <element signature="e#3081#3266#0#PHP" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SDM630.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SDM630.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="14" selection-start-line="10" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModbusDevice.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ModbusDevice.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="239" lean-forward="true" selection-start-line="239" selection-end-line="239" />
-              <folding>
-                <element signature="e#119#136#0#PHP" />
-                <element signature="e#251#270#0#PHP" />
-                <element signature="e#488#515#0#PHP" />
-                <element signature="e#799#821#0#PHP" />
-                <element signature="e#827#897#0#PHP" />
-                <element signature="n#getRegistersIDs#0;n#ModbusDevice#0;n#!!top" />
-                <element signature="e#1494#1569#0#PHP" />
-                <element signature="n#getParametersNames#0;n#ModbusDevice#0;n#!!top" />
-                <element signature="e#2064#2202#0#PHP" />
-                <element signature="n#getParameterValue#0;n#ModbusDevice#0;n#!!top" />
-                <element signature="e#3177#3292#0#PHP" />
-                <element signature="n#getParametersValues#0;n#ModbusDevice#0;n#!!top" />
-                <element signature="e#3912#3935#0#PHP" />
-                <element signature="e#3929#4101#0#PHP" />
-                <element signature="n#convertParameter#0;n#ModbusDevice#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModbusDataTypes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ModbusDataTypes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -150,8 +87,9 @@
         <option value="$PROJECT_DIR$/Data/BasicEnum.php" />
         <option value="$PROJECT_DIR$/evok.conf" />
         <option value="$PROJECT_DIR$/hw_definitions/README.md" />
-        <option value="$PROJECT_DIR$/ModbusDataTypes.php" />
         <option value="$PROJECT_DIR$/ModbusDevice.php" />
+        <option value="$PROJECT_DIR$/ModbusDataTypes.php" />
+        <option value="$PROJECT_DIR$/ModbusRegister.php" />
       </list>
     </option>
   </component>
@@ -225,12 +163,12 @@
       <workItem from="1529938602506" duration="23532000" />
       <workItem from="1530686650489" duration="613000" />
       <workItem from="1531309667153" duration="11000" />
-      <workItem from="1531382930024" duration="12008000" />
+      <workItem from="1531382930024" duration="12169000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36164000" />
+    <option name="totallyTimeSpent" value="36325000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
@@ -355,61 +293,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ModbusRegister.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
-          <folding>
-            <element signature="e#121#138#0#PHP" />
-            <element signature="e#550#569#0#PHP" />
-            <element signature="e#1057#1084#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="68" column="15" lean-forward="true" selection-start-line="68" selection-start-column="15" selection-end-line="68" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SDM630.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="14" selection-start-line="10" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SDM120.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" selection-start-line="10" selection-end-line="12" />
-          <folding>
-            <element signature="e#3081#3266#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ModbusDeviceFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#151#173#0#PHP" />
-            <element signature="e#151#311#0#PHP" />
-            <element signature="n#makeSDM120#0;n#ModbusDeviceFactory#0;n#!!top" />
-            <element signature="e#2758#2891#0#PHP" />
-            <element signature="n#SDM630#0;n#ModbusDeviceFactory#0;n#!!top" />
-            <element signature="e#12499#12581#0#PHP" />
-            <element signature="n#DelcosPro#0;n#ModbusDeviceFactory#0;n#!!top" />
-            <element signature="e#15402#15425#0#PHP" />
-            <element signature="e#15354#15420#0#PHP" />
-            <element signature="n#makeDevice#0;n#ModbusDeviceFactory#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hw_definitions/SDM120.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -444,13 +327,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ModbusDataTypes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ModbusDevice.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -471,6 +347,68 @@
             <element signature="e#3912#3935#0#PHP" />
             <element signature="e#3929#4101#0#PHP" />
             <element signature="n#convertParameter#0;n#ModbusDevice#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SDM630.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SDM120.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="10" selection-end-line="12" />
+          <folding>
+            <element signature="e#3081#3266#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModbusDeviceFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#151#173#0#PHP" />
+            <element signature="e#151#311#0#PHP" />
+            <element signature="n#makeSDM120#0;n#ModbusDeviceFactory#0;n#!!top" />
+            <element signature="e#2758#2891#0#PHP" />
+            <element signature="n#SDM630#0;n#ModbusDeviceFactory#0;n#!!top" />
+            <element signature="e#12499#12581#0#PHP" />
+            <element signature="n#DelcosPro#0;n#ModbusDeviceFactory#0;n#!!top" />
+            <element signature="e#15402#15425#0#PHP" />
+            <element signature="e#15354#15420#0#PHP" />
+            <element signature="n#makeDevice#0;n#ModbusDeviceFactory#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModbusDataTypes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="68" column="15" lean-forward="true" selection-start-line="68" selection-start-column="15" selection-end-line="68" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModbusRegister.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <folding>
+            <element signature="e#121#138#0#PHP" />
+            <element signature="e#550#569#0#PHP" />
+            <element signature="e#1057#1084#0#PHP" />
           </folding>
         </state>
       </provider>

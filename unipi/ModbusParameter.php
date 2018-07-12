@@ -1,11 +1,9 @@
 <?php
 
 /**
- * This class is dedicated to read data from Delcos energy meter.
- *
- * @see 
+ * This class is dedicated to describe one modbus parameter.
  */
-class ModbusRegister
+class ModbusParameter
 {
 
     #region Variables

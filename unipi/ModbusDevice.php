@@ -1,9 +1,7 @@
 <?php
 
 /**
- * This class is dedicated to read data from Delcos energy meter.
- *
- * @see 
+ * This class is MODBUS composite device.
  */
 class ModbusDevice
 {
@@ -11,7 +9,7 @@ class ModbusDevice
     #region Variables
 
     /**
-     * Registers
+     * Device registers.
      *
      * @var array
      */
@@ -36,6 +34,8 @@ class ModbusDevice
     #region Getters and Setters
 
     /**
+     * Returns device registers.
+     *
      * @return array
      */
     public function getRegisters()
@@ -44,6 +44,8 @@ class ModbusDevice
     }
 
     /**
+     * Sets device registers.
+     *
      * @param array $registers
      */
     public function setRegisters($registers)
@@ -105,12 +107,12 @@ class ModbusDevice
     }
 
     /**
-     * Get value by the content.
+     * Returns parameter value.
      *
-     * @param string $parameter_name Parameter name.
-     * @param array $registers Device parameter name.
-     * @return float Parameter value.
-     * @throws Exception InvalidArgumentException
+     * @param string $parameter Parameter name.
+     * @param array $registers Registers data,
+     * @return null, mixed
+     * @throws Exception
      */
     public function getParameterValue($parameter, $registers)
     {
@@ -144,12 +146,13 @@ class ModbusDevice
         return $value;
     }
 
+
     /**
-     * Get value byt the content.
+     * Returns parameters valus.
      *
-     * @param object $content MODBUS data.
-     * @return array Parameters values.
-     * @throws Exception InvalidArgumentException
+     * @param array $registers Registers data.
+     * @return array Array of parametters valus.
+     * @throws Exception
      */
     public function getParametersValues($registers)
     {
@@ -177,6 +180,15 @@ class ModbusDevice
 
     #region Private Methods
 
+    /**
+     * Covert registers to single value.
+     *
+     * @param string $type Data type.
+     * @param array $registers Registers addresses.
+     * @param array $registers_data Registers data.
+     * @return string Value
+     * @throws Exception
+     */
     private function convertParameter($type, $registers, $registers_data)
     {
         if(!ModbusDataTypes::isValidName($type))
