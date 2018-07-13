@@ -11,6 +11,10 @@ require_once('SDM630.php');
 
 //
 require_once ('modbusDeviceFactory.php');
+
+//
+require_once('ConfigurationGenerator\EvokDevCfgGenerator.php');
+
 // Start
 
 // From DB.
@@ -41,7 +45,11 @@ $sdm120 = ModbusDeviceFactory::SDM120();
 $sdm360 = ModbusDeviceFactory::SDM630();
 $delcos_pro = ModbusDeviceFactory::DelcosPro();
 
-echo "<br>";
+$file_path = __DIR__.'\hw_definitions\DelcosPro.yaml';
+$regs = $delcos_pro->getRegisters();
+$cfg2 = EvokDevCfgGenerator::createFromRegisters('DelcosPro', 2, 60, 1, $regs);
+yaml_emit_file($file_path, $cfg2);
+
 try
 {
     /** @var Modbus registers IDs. $sdm120_registers_indexes */

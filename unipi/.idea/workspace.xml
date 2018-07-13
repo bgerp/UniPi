@@ -13,36 +13,71 @@
     <favorites_list name="unipi" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
+            <state relative-caret-position="360">
+              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModbusDataTypes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ModbusDataTypes.php">
+      <file leaf-file-name="DelcosPro.yaml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hw_definitions/DelcosPro.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="16" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="16" />
+            <state relative-caret-position="785">
+              <caret line="347" column="16" selection-start-line="347" selection-start-column="16" selection-end-line="347" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModbusDeviceFactory.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hw_definitions/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="68">
+                <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SDM120.yaml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hw_definitions/SDM120.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1513">
+              <caret line="89" column="17" selection-start-line="89" selection-start-column="6" selection-end-line="89" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EvokDevCfgGenerator.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ConfigurationGenerator/EvokDevCfgGenerator.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+              <folding>
+                <element signature="e#137#154#0#PHP" />
+                <element signature="e#193#212#0#PHP" />
+                <element signature="e#301#328#0#PHP" />
+                <element signature="n#generateConfiguration#0;n#ConfigurationGenerator#0;n#!!top" />
+                <element signature="n#addModbusRegisterBlocks#0;n#EVOKDeviceCfgGenerator#0;n#!!top" />
+                <element signature="n#addModbusFeatures#0;n#EVOKDeviceCfgGenerator#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModbusDeviceFactory.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ModbusDeviceFactory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="781">
-              <caret line="202" column="151" selection-start-line="202" selection-start-column="151" selection-end-line="202" selection-end-column="151" />
+            <state relative-caret-position="77">
+              <caret line="147" column="7" selection-start-line="147" selection-start-column="7" selection-end-line="147" selection-end-column="7" />
               <folding>
-                <element signature="e#181#341#0#PHP" />
                 <element signature="n#SDM120#0;n#ModbusDeviceFactory#0;n#!!top" />
-                <element signature="e#2808#2941#0#PHP" />
                 <element signature="n#SDM630#0;n#ModbusDeviceFactory#0;n#!!top" />
-                <element signature="e#15399#15422#0#PHP" />
                 <element signature="n#makeDevice#0;n#ModbusDeviceFactory#0;n#!!top" />
               </folding>
             </state>
@@ -98,12 +133,16 @@
         <option value="$PROJECT_DIR$/Delcos.php" />
         <option value="$PROJECT_DIR$/Data/BasicEnum.php" />
         <option value="$PROJECT_DIR$/evok.conf" />
-        <option value="$PROJECT_DIR$/hw_definitions/README.md" />
         <option value="$PROJECT_DIR$/ModbusDevice.php" />
         <option value="$PROJECT_DIR$/ModbusRegister.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/ModbusDataTypes.php" />
         <option value="$PROJECT_DIR$/ModbusDeviceFactory.php" />
+        <option value="$PROJECT_DIR$/ConfigurationGenerator/ConfigurationGenerator.php" />
+        <option value="$PROJECT_DIR$/ConfigurationGenerator/EVOKDeviceCfgGenerator.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/hw_definitions/DelcosPro.yaml" />
+        <option value="$PROJECT_DIR$/hw_definitions/README.md" />
+        <option value="$PROJECT_DIR$/ConfigurationGenerator/EvokDevCfgGenerator.php" />
       </list>
     </option>
   </component>
@@ -117,16 +156,15 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="x" value="953" />
+    <option name="width" value="973" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -134,10 +172,21 @@
               <item name="unipi" type="b2602c69:ProjectViewProjectNode" />
               <item name="unipi" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="unipi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="unipi" type="462c0819:PsiDirectoryNode" />
+              <item name="ConfigurationGenerator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="unipi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="unipi" type="462c0819:PsiDirectoryNode" />
+              <item name="hw_definitions" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -177,15 +226,17 @@
       <workItem from="1529938602506" duration="23532000" />
       <workItem from="1530686650489" duration="613000" />
       <workItem from="1531309667153" duration="11000" />
-      <workItem from="1531382930024" duration="13137000" />
+      <workItem from="1531382930024" duration="13344000" />
+      <workItem from="1531411658563" duration="495000" />
+      <workItem from="1531466072807" duration="7304000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37293000" />
+    <option name="totallyTimeSpent" value="45299000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
+    <frame x="953" y="0" width="973" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="11" />
@@ -194,19 +245,19 @@
       <window_info anchor="bottom" id="Version Control" order="4" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="7" />
       <window_info anchor="bottom" id="Terminal" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49947202" visible="true" weight="0.25052193" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.5008586" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49841604" visible="true" weight="0.2507837" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.32942432" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="0" sideWeight="0.500528" side_tool="true" weight="0.090625" />
+      <window_info id="Favorites" order="0" sideWeight="0.50158393" side_tool="true" weight="0.125" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.5008586" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="6" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.5008586" />
@@ -214,7 +265,7 @@
       <window_info anchor="bottom" id="Run" order="7" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.090625" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49947202" visible="true" weight="0.125" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" />
@@ -223,11 +274,11 @@
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="bottom" id="Terminal" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="4" show_stripe_button="false" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="4" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="5" />
-      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info id="Favorites" order="0" sideWeight="0.500528" side_tool="true" weight="0.090625" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,17 +289,62 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/ModbusDevice.php</url>
-          <line>26</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="15" />
+      <option name="time" value="16" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModbusDataTypes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModbusDeviceFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2499">
+          <caret line="147" column="7" selection-start-line="147" selection-start-column="7" selection-end-line="147" selection-end-column="7" />
+          <folding>
+            <element signature="n#SDM120#0;n#ModbusDeviceFactory#0;n#!!top" />
+            <element signature="n#SDM630#0;n#ModbusDeviceFactory#0;n#!!top" />
+            <element signature="n#makeDevice#0;n#ModbusDeviceFactory#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModbusDataTypes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModbusDeviceFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="181" lean-forward="true" selection-start-line="181" selection-end-line="181" />
+          <folding>
+            <element signature="n#SDM120#0;n#ModbusDeviceFactory#0;n#!!top" />
+            <element signature="n#SDM630#0;n#ModbusDeviceFactory#0;n#!!top" />
+            <element signature="n#makeDevice#0;n#ModbusDeviceFactory#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SDM630.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
@@ -307,19 +403,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw_definitions/SDM120.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw_definitions/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="68">
-            <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Data/BasicEnum.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -334,13 +417,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Delcos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1269">
-          <caret line="38" column="33" lean-forward="true" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Delcos.php" />
     <entry file="file://$PROJECT_DIR$/SDM630.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="101">
@@ -352,42 +429,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" selection-start-line="10" selection-end-line="12" />
-          <folding>
-            <element signature="e#3081#3266#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ModbusParameter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="4" selection-end-column="3" />
-          <folding>
-            <element signature="e#121#138#0#PHP" />
-            <element signature="e#550#569#0#PHP" />
-            <element signature="e#1057#1084#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ModbusDevice.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1853">
-          <caret line="239" lean-forward="true" selection-start-line="239" selection-end-line="239" />
-          <folding>
-            <element signature="n#getRegistersIDs#0;n#ModbusDevice#0;n#!!top" />
-            <element signature="n#getParametersNames#0;n#ModbusDevice#0;n#!!top" />
-            <element signature="n#getParameterValue#0;n#ModbusDevice#0;n#!!top" />
-            <element signature="n#getParametersValues#0;n#ModbusDevice#0;n#!!top" />
-            <element signature="n#convertParameter#0;n#ModbusDevice#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -398,17 +439,85 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ModbusDevice.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="102" column="22" selection-start-line="102" selection-start-column="12" selection-end-line="102" selection-end-column="22" />
+          <folding>
+            <element signature="e#223#242#0#PHP" />
+            <element signature="n#getRegistersIDs#0;n#ModbusDevice#0;n#!!top" />
+            <element signature="n#getParameterValue#0;n#ModbusDevice#0;n#!!top" />
+            <element signature="n#getParametersValues#0;n#ModbusDevice#0;n#!!top" />
+            <element signature="n#convertParameter#0;n#ModbusDevice#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModbusParameter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="113" column="20" selection-start-line="113" selection-start-column="20" selection-end-line="113" selection-end-column="33" />
+          <folding>
+            <element signature="e#105#122#0#PHP" />
+            <element signature="e#534#553#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ModbusDeviceFactory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="781">
-          <caret line="202" column="151" selection-start-line="202" selection-start-column="151" selection-end-line="202" selection-end-column="151" />
+        <state relative-caret-position="77">
+          <caret line="147" column="7" selection-start-line="147" selection-start-column="7" selection-end-line="147" selection-end-column="7" />
           <folding>
-            <element signature="e#181#341#0#PHP" />
             <element signature="n#SDM120#0;n#ModbusDeviceFactory#0;n#!!top" />
-            <element signature="e#2808#2941#0#PHP" />
             <element signature="n#SDM630#0;n#ModbusDeviceFactory#0;n#!!top" />
-            <element signature="e#15399#15422#0#PHP" />
             <element signature="n#makeDevice#0;n#ModbusDeviceFactory#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw_definitions/SDM120.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1513">
+          <caret line="89" column="17" selection-start-line="89" selection-start-column="6" selection-end-line="89" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw_definitions/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="68">
+            <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw_definitions/DelcosPro.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="785">
+          <caret line="347" column="16" selection-start-line="347" selection-start-column="16" selection-end-line="347" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConfigurationGenerator/EvokDevCfgGenerator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+          <folding>
+            <element signature="e#137#154#0#PHP" />
+            <element signature="e#193#212#0#PHP" />
+            <element signature="e#301#328#0#PHP" />
+            <element signature="n#generateConfiguration#0;n#ConfigurationGenerator#0;n#!!top" />
+            <element signature="n#addModbusRegisterBlocks#0;n#EVOKDeviceCfgGenerator#0;n#!!top" />
+            <element signature="n#addModbusFeatures#0;n#EVOKDeviceCfgGenerator#0;n#!!top" />
           </folding>
         </state>
       </provider>
