@@ -346,3 +346,4 @@ modbus_features:
   major_group: 1
   count: 9
   start_reg: 214
+...

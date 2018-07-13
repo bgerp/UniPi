@@ -17,7 +17,7 @@ class EvokDevCfgGenerator
 
     #endregion
 
-    #region Construcotr
+    #region Constructor
 
     /**
      * EvokDevCfgGenerator constructor.
@@ -109,20 +109,20 @@ class EvokDevCfgGenerator
      *
      * @param string $type
      * @param integer $board_index Board index in the bus.
-     * @param $frequency Update frequency.
-     * @param $major_group Major group.
-     * @param $regsters Modbus registers.
+     * @param integer $frequency Update frequency.
+     * @param integer $major_group Major group.
+     * @param integer $regsters Modbus registers.
      * @return array Settings
      */
-    public static function createFromRegisters($type, $board_index, $frequency, $major_group, $regsters)
+    public static function createFromParameters($type, $board_index, $frequency, $major_group, $parameters)
     {
         $configuration = new EvokDevCfgGenerator();
 
         $configuration->addType($type);
 
-        foreach ($regsters as $key => $register)
+        foreach ($parameters as $key => $parameter)
         {
-            $addresses = $register->getAdresses();
+            $addresses = $parameter->getAdresses();
             $addresses_count = count($addresses);
             $configuration->addModbusRegisterBlocks($board_index, $addresses[0], $addresses_count, $frequency);
             $configuration->addModbusFeatures('REGISTER', $major_group, $addresses_count, $addresses[0]);
@@ -132,6 +132,5 @@ class EvokDevCfgGenerator
     }
 
     #endregion
-
 
 }

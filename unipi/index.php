@@ -13,9 +13,13 @@ require_once('SDM630.php');
 require_once ('modbusDeviceFactory.php');
 
 //
-require_once('ConfigurationGenerator\EvokDevCfgGenerator.php');
+require_once('evok\EvokDevCfgGenerator.php');
 
+require_once ('evok\EvokDevUpdater.php');
 // Start
+
+
+
 
 // From DB.
 $ip = "176.33.1.25";
@@ -27,70 +31,142 @@ $uart = "UART_1";
 // Master device.
 $neuron = new Neuron($ip, $port);
 $neuron->update();
-$neuron->turnLed(1, 1);
-$neuron->turnLed(2, 1);
-$neuron->turnLed(3, 1);
-$neuron->turnLed(4, 1);
+testLeds($neuron);
+testRelays($neuron);
+//testUart($neuron);
+//testOutput($neuron);
+$sdm120_parameters_values = getSDM120Parameters($neuron, $uart, $device_id);
+$sdm630_parameters_values = getSDM630Parameters($neuron, $uart, $device_id);
 
-$neuron->turnRelay(1, 1);
-$neuron->turnRelay(2, 1);
-$neuron->turnRelay(3, 1);
-$neuron->turnRelay(4, 1);
-$ledon = $neuron->turnOutput(1, 0);
-
-//$neuron->setUartRegister("UART_1", 2, 0, 0);
-//$neuron->setUartRegister("UART_1", 2, 1, 0);
-
-$sdm120 = ModbusDeviceFactory::SDM120();
-$sdm360 = ModbusDeviceFactory::SDM630();
-$delcos_pro = ModbusDeviceFactory::DelcosPro();
-
-$file_path = __DIR__.'\hw_definitions\DelcosPro.yaml';
-$regs = $delcos_pro->getRegisters();
-$cfg2 = EvokDevCfgGenerator::createFromRegisters('DelcosPro', 2, 60, 1, $regs);
-yaml_emit_file($file_path, $cfg2);
-
-try
+function testRelays($neuron)
 {
-    /** @var Modbus registers IDs. $sdm120_registers_indexes */
-    $sdm120_registers_ids = $sdm120->getRegistersIDs();
-
-    /** @var Modbus registers values. $sdm120_registers_values */
-    $sdm120_registers_values = $neuron->getUartRegisters($uart, $device_id, $sdm120_registers_ids);
-
-    /** @var Parameters values. $sdm120_parameters_values */
-    $sdm120_parameters_values = $sdm120->getParametersValues($sdm120_registers_values);
-}
-catch(Exception $e)
-{
-    echo("Problem with 1 phase power meter.");
+    for($index = 1; $index < 5; $index++)
+    {
+        $neuron->turnRelay($index, 1);
+        sleep(0.2);
+    }
+    for($index = 1; $index < 5; $index++)
+    {
+        $neuron->turnRelay($index, 0);
+        sleep(0.2);
+    }
 }
 
-$sdm630_registers_values = [];
-try
+function testLeds($neuron)
 {
-    /** @var Modbus registers IDs. $sdm630_registers_ids */
-    $sdm630_registers_ids = $sdm360->getRegistersIDs();
-
-    /** @var Modbus registers values. $sdm630_registers_values */
-    $sdm630_registers_values = $neuron->getUartRegisters($uart, $device_id, $sdm630_registers_ids);
-
-    /** @var Parameters values. $sdm630_parameters_values */
-    $sdm630_parameters_values = $sdm360->getParametersValues($sdm630_registers_values);
-}
-catch(Exception $e)
-{
-    echo("Problem with 3 phase power meter.");
+    for($index = 1; $index < 5; $index++)
+    {
+        $neuron->turnLed($index, 1);
+        sleep(0.2);
+    }
+    for($index = 1; $index < 5; $index++)
+    {
+        $neuron->turnLed($index, 0);
+        sleep(0.2);
+    }
 }
 
-$neuron->turnLed(1, 0);
-$neuron->turnLed(2, 0);
-$neuron->turnLed(3, 0);
-$neuron->turnLed(4, 0);
-$neuron->turnRelay(1, 0);
-$neuron->turnRelay(2, 0);
-$neuron->turnRelay(3, 0);
-$neuron->turnRelay(4, 0);
+function testUart($neuron)
+{
+    $neuron->setUartRegister("UART_1", 2, 0, 0);
+    $neuron->setUartRegister("UART_1", 2, 1, 0);
+}
+
+function testOutput($neuron)
+{
+    $ledon = $neuron->turnOutput(1, 0);
+}
+
+function uploadHardwareDefinition()
+{
+    // Create device.
+    $delcos_pro = ModbusDeviceFactory::DelcosPro();
+
+    // Get device parameters.
+    $regs = $delcos_pro->getRegisters();
+
+    // Create configuration.
+    $cfg2 = EvokDevCfgGenerator::createFromParameters(
+            'DelcosPro',
+            2,
+            60,
+            1,
+            $regs);
+
+    // Local resource path to the file.
+    $file_path = __DIR__.'\hw_definitions\DelcosPro.yaml';
+
+    // Generate YAML file for the EVOK.
+    yaml_emit_file($file_path, $cfg2);
+
+    // Create updater.
+    // Parameters for the connection will come from the ERP DB.
+    $deviceUpdater = new EvokDevUpdater(
+            '176.33.1.25',
+            22,
+            'pi',
+            'raspberry');
+
+    // Add hardware definition.
+    $deviceUpdater->addHardwareDefinition($file_path);
+
+    // Restart the service to update the definitions.
+    $deviceUpdater->restartService();
+}
+
+function getSDM120Parameters($neuron, $uart, $device_id)
+{
+    $sdm120_parameters_values = null;
+
+    try
+    {
+
+        /** @var object $sdm120 SDM120 Device.*/
+        $sdm120 = ModbusDeviceFactory::SDM120();
+
+        /** @var Modbus registers IDs. $sdm120_registers_indexes */
+        $sdm120_registers_ids = $sdm120->getRegistersIDs();
+
+        /** @var Modbus registers values. $sdm120_registers_values */
+        $sdm120_registers_values = $neuron->getUartRegisters($uart, $device_id, $sdm120_registers_ids);
+
+        /** @var Parameters values. $sdm120_parameters_values */
+        $sdm120_parameters_values = $sdm120->getParametersValues($sdm120_registers_values);
+    }
+    catch(Exception $e)
+    {
+        echo("Problem with 1 phase power meter.");
+    }
+
+    return $sdm120_parameters_values;
+}
+
+function getSDM630Parameters($neuron, $uart, $device_id)
+{
+    $sdm630_parameters_values = null;
+
+    try
+    {
+        /** @var object $sdm630 SDM630 Device.*/
+        $sdm360 = ModbusDeviceFactory::SDM630();
+
+        /** @var Modbus registers IDs. $sdm630_registers_ids */
+        $sdm630_registers_ids = $sdm360->getRegistersIDs();
+
+        /** @var Modbus registers values. $sdm630_registers_values */
+        $sdm630_registers_values = $neuron->getUartRegisters($uart, $device_id, $sdm630_registers_ids);
+
+        /** @var Parameters values. $sdm630_parameters_values */
+        $sdm630_parameters_values = $sdm360->getParametersValues($sdm630_registers_values);
+    }
+    catch(Exception $e)
+    {
+        echo("Problem with 3 phase power meter.");
+    }
+
+
+    return $sdm630_parameters_values;
+}
 
 ?>
 
@@ -101,6 +177,7 @@ $neuron->turnRelay(4, 0);
         <title>SDM120 - 2</title>
     </head>
     <body>
+        <br>
         <br>
         <font size="5">1 phase</font>
         <br>
