@@ -32,8 +32,15 @@ $uart = "UART_1";
 // Master device.
 $neuron = new Neuron($ip, $port);
 $neuron->update();
+
 $last_comm = $neuron->getLastComTime();
 echo ("<br>Last communication time: ".$last_comm.'[s]<br>');
+$model = $neuron->getDeviceModel();
+echo ("<br>Model: ".$model.'<br>');
+$sn = $neuron->getDeviceSerialNumber();
+echo ("<br>Serial Number: ".$sn.'<br>');
+$ver = $neuron->getDeviceVersion();
+echo ("<br>Vrsion : ".$ver.'<br>');
 
 testLeds($neuron);
 testRelays($neuron);

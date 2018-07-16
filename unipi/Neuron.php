@@ -214,6 +214,25 @@ class Neuron
         return $this->getDeviceParameter('model');
     }
 
+    /**
+     * Get device serial number.
+     *
+     * @return null, integer
+     */
+    public function getDeviceSerialNumber()
+    {
+        return $this->getDeviceParameter('sn');
+    }
+
+    /**
+     * Get device version.
+     *
+     * @return null, string
+     */
+    public function getDeviceVersion()
+    {
+        return $this->getDeviceParameter('ver2');
+    }
 
     /**
      * Get register data of the device.
