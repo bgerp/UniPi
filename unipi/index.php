@@ -43,8 +43,15 @@ $sdm630_parameters_values = getSDM630Parameters($neuron, $uart, $device_id);
 
 function testDeviceParameters($neuron)
 {
+    $last_comm_max = 0.05;
     $last_comm = $neuron->getLastComTime();
     echo ("<br>Last communication time: ".$last_comm.'[s]<br>');
+
+    if($last_comm > $last_comm_max)
+    {
+        echo ("<br>Communication Alarm: ".$last_comm.'[s]<br>');
+    }
+
     $model = $neuron->getDeviceModel();
     echo ("<br>Model: ".$model.'<br>');
     $sn = $neuron->getDeviceSerialNumber();

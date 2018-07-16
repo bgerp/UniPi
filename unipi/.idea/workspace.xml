@@ -14,13 +14,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="35" column="30" lean-forward="true" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+            <state relative-caret-position="424">
+              <caret line="51" column="57" lean-forward="true" selection-start-line="51" selection-start-column="57" selection-end-line="51" selection-end-column="57" />
               <folding>
-                <element signature="n#testDeviceParameters#0;n#!!top" />
                 <element signature="n#testRelays#0;n#!!top" />
                 <element signature="n#testLeds#0;n#!!top" />
                 <element signature="n#testUart#0;n#!!top" />
@@ -33,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Neuron.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Neuron.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Neuron.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="290" column="40" selection-start-line="290" selection-start-column="40" selection-end-line="290" selection-end-column="40" />
+            <state relative-caret-position="689">
+              <caret line="477" lean-forward="true" selection-start-line="477" selection-end-line="477" />
               <folding>
                 <element signature="e#159#176#0#PHP" />
                 <element signature="e#505#524#0#PHP" />
@@ -60,6 +59,7 @@
                 <element signature="e#2664#2887#0#PHP" />
                 <element signature="n#getUartRegister#0;n#Neuron#0;n#!!top" />
                 <element signature="e#3506#3788#0#PHP" />
+                <element signature="n#getUartRegisters#0;n#Neuron#0;n#!!top" />
                 <element signature="e#4244#4587#0#PHP" />
                 <element signature="n#setUartRegister#0;n#Neuron#0;n#!!top" />
                 <element signature="e#6285#6579#0#PHP" />
@@ -176,8 +176,8 @@
         <option value="$PROJECT_DIR$/ModbusDeviceFactory.php" />
         <option value="$PROJECT_DIR$/evok/EvokDevCfgGenerator.php" />
         <option value="$PROJECT_DIR$/evok/EvokDevUpdater.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/Neuron.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -190,7 +190,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -260,21 +260,21 @@
       <workItem from="1531411658563" duration="495000" />
       <workItem from="1531466072807" duration="16869000" />
       <workItem from="1531722932564" duration="72000" />
-      <workItem from="1531725955184" duration="3913000" />
+      <workItem from="1531725955184" duration="6517000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58849000" />
+    <option name="totallyTimeSpent" value="61453000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.4978678" visible="true" weight="0.25052193" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4978678" visible="true" weight="0.125" />
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="2" side_tool="true" visible="true" weight="0.32946146" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="7" />
@@ -321,7 +321,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="23" />
+      <option name="time" value="27" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -330,7 +330,6 @@
         <state relative-caret-position="170">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
           <folding>
-            <element signature="n#testDeviceParameters#0;n#!!top" />
             <element signature="n#testRelays#0;n#!!top" />
             <element signature="n#testLeds#0;n#!!top" />
             <element signature="n#testUart#0;n#!!top" />
@@ -368,6 +367,7 @@
             <element signature="e#2664#2887#0#PHP" />
             <element signature="n#getUartRegister#0;n#Neuron#0;n#!!top" />
             <element signature="e#3506#3788#0#PHP" />
+            <element signature="n#getUartRegisters#0;n#Neuron#0;n#!!top" />
             <element signature="e#4244#4587#0#PHP" />
             <element signature="n#setUartRegister#0;n#Neuron#0;n#!!top" />
             <element signature="e#6285#6579#0#PHP" />
@@ -419,7 +419,6 @@
         <state relative-caret-position="170">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
           <folding>
-            <element signature="n#testDeviceParameters#0;n#!!top" />
             <element signature="n#testRelays#0;n#!!top" />
             <element signature="n#testLeds#0;n#!!top" />
             <element signature="n#testUart#0;n#!!top" />
@@ -457,6 +456,7 @@
             <element signature="e#2664#2887#0#PHP" />
             <element signature="n#getUartRegister#0;n#Neuron#0;n#!!top" />
             <element signature="e#3506#3788#0#PHP" />
+            <element signature="n#getUartRegisters#0;n#Neuron#0;n#!!top" />
             <element signature="e#4244#4587#0#PHP" />
             <element signature="n#setUartRegister#0;n#Neuron#0;n#!!top" />
             <element signature="e#6285#6579#0#PHP" />
@@ -508,7 +508,6 @@
         <state relative-caret-position="697">
           <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
           <folding>
-            <element signature="n#testDeviceParameters#0;n#!!top" />
             <element signature="n#testRelays#0;n#!!top" />
             <element signature="n#testLeds#0;n#!!top" />
             <element signature="n#testUart#0;n#!!top" />
@@ -714,27 +713,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="35" column="30" lean-forward="true" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
-          <folding>
-            <element signature="n#testDeviceParameters#0;n#!!top" />
-            <element signature="n#testRelays#0;n#!!top" />
-            <element signature="n#testLeds#0;n#!!top" />
-            <element signature="n#testUart#0;n#!!top" />
-            <element signature="n#testOutput#0;n#!!top" />
-            <element signature="n#uploadHardwareDefinition#0;n#!!top" />
-            <element signature="n#getSDM120Parameters#0;n#!!top" />
-            <element signature="n#getSDM630Parameters#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Neuron.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="290" column="40" selection-start-line="290" selection-start-column="40" selection-end-line="290" selection-end-column="40" />
+        <state relative-caret-position="689">
+          <caret line="477" lean-forward="true" selection-start-line="477" selection-end-line="477" />
           <folding>
             <element signature="e#159#176#0#PHP" />
             <element signature="e#505#524#0#PHP" />
@@ -757,6 +739,7 @@
             <element signature="e#2664#2887#0#PHP" />
             <element signature="n#getUartRegister#0;n#Neuron#0;n#!!top" />
             <element signature="e#3506#3788#0#PHP" />
+            <element signature="n#getUartRegisters#0;n#Neuron#0;n#!!top" />
             <element signature="e#4244#4587#0#PHP" />
             <element signature="n#setUartRegister#0;n#Neuron#0;n#!!top" />
             <element signature="e#6285#6579#0#PHP" />
@@ -765,6 +748,22 @@
             <element signature="n#turnRelay#0;n#Neuron#0;n#!!top" />
             <element signature="e#8387#8705#0#PHP" />
             <element signature="n#turnOutput#0;n#Neuron#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="51" column="57" lean-forward="true" selection-start-line="51" selection-start-column="57" selection-end-line="51" selection-end-column="57" />
+          <folding>
+            <element signature="n#testRelays#0;n#!!top" />
+            <element signature="n#testLeds#0;n#!!top" />
+            <element signature="n#testUart#0;n#!!top" />
+            <element signature="n#testOutput#0;n#!!top" />
+            <element signature="n#uploadHardwareDefinition#0;n#!!top" />
+            <element signature="n#getSDM120Parameters#0;n#!!top" />
+            <element signature="n#getSDM630Parameters#0;n#!!top" />
           </folding>
         </state>
       </provider>

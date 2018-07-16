@@ -171,31 +171,34 @@ class Neuron
      */
     public function update()
     {
-        // Create CURL resource.
+        // Init CURL object.
         $ch = curl_init();
 
-        // Set URL.
-        curl_setopt($ch, CURLOPT_URL, 'http://'.$this->ip.':'.$this->port.'/rest/all');
+        curl_setopt_array($ch, array(
+            CURLOPT_URL => 'http://'.$this->ip.'/rest/all',
+            CURLOPT_PORT => $this->port,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+        ));
 
-        // Return the transfer as a string.
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-        // $response Contains the output string.
+        // Get response.
         $response = curl_exec($ch);
 
         // Get error.
         $err = curl_error($ch);
 
-        // Close curl resource to free up system resources.
-        curl_close($ch);  
+        // Clear CURL object.
+        curl_close($ch);
 
         if ($err)
         {
-          echo "cURL Error #:" . $err;
+            throw new \Exception($err);
         }
 
-        //print_r($response);
-        
         // Convert to JSON.
         $this->json_data = json_decode($response, true);
     }
@@ -314,7 +317,8 @@ class Neuron
         $ch = curl_init();
 
         curl_setopt_array($ch, array(
-          CURLOPT_URL => "http://".$this->ip.":".$this->port."/rest/register/".$circuit,
+          CURLOPT_URL => "http://".$this->ip."/rest/register/".$circuit,
+          CURLOPT_PORT => $this->port,
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_ENCODING => "",
           CURLOPT_MAXREDIRS => 10,
@@ -324,15 +328,18 @@ class Neuron
           CURLOPT_POSTFIELDS => "value=".$value,
         ));
 
-        // 
+        // Get response.
         $response = curl_exec($ch);
+
+        // Get error.
         $err = curl_error($ch);
 
         // Clear CURL object.
         curl_close($ch);
 
-        if ($err) {
-          echo "cURL Error #:" . $err;
+        if ($err)
+        {
+            throw new \Exception($err);
         }
         
         // Convert to JSON.
@@ -350,29 +357,38 @@ class Neuron
      */
     public function turnLed($index, $state)
     {
-        // Create CURL resource.
+        // Init CURL object.
         $ch = curl_init();
 
-        // Set URL.
-        curl_setopt($ch, CURLOPT_URL, 'http://'.$this->ip.':'.$this->port.'/rest/led/1_0'.$index);
+        curl_setopt_array($ch, array(
+            CURLOPT_URL => "http://".$this->ip.'/rest/led/1_0'.$index,
+            CURLOPT_PORT => $this->port,
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_POST => 1,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => "value=".$state,
+        ));
 
-        // Return the transfer as a string.
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        // Get response.
+        $response = curl_exec($ch);
 
-        // Type POST.
-        curl_setopt($ch, CURLOPT_POST,           1 );
+        // Get error.
+        $err = curl_error($ch);
 
-        // Fields
-        curl_setopt($ch, CURLOPT_POSTFIELDS,     "value=".$state ); 
-
-        // $content Contains the output string.
-        $content = curl_exec($ch);
-
-        // Close curl resource to free up system resources.
+        // Clear CURL object.
         curl_close($ch);
 
-        // Returns the state of the LED.
-        return $content;
+        if ($err)
+        {
+            throw new \Exception($err);
+        }
+
+        // Convert to JSON.
+        return json_decode($response, true);
     }
         
     /**
@@ -386,29 +402,38 @@ class Neuron
      */
     public function turnRelay($index, $state)
     {
-        // Create CURL resource.
+        // Init CURL object.
         $ch = curl_init();
 
-        // Set URL.
-        curl_setopt($ch, CURLOPT_URL, 'http://'.$this->ip.':'.$this->port.'/rest/relay/1_0'.$index);
+        curl_setopt_array($ch, array(
+            CURLOPT_URL => "http://".$this->ip.'/rest/relay/1_0'.$index,
+            CURLOPT_PORT => $this->port,
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_POST => 1,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => "value=".$state,
+        ));
 
-        // Return the transfer as a string.
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        // Get response.
+        $response = curl_exec($ch);
 
-        // Type POST.
-        curl_setopt($ch, CURLOPT_POST,           1 );
+        // Get error.
+        $err = curl_error($ch);
 
-        // Fields
-        curl_setopt($ch, CURLOPT_POSTFIELDS,     "value=".$state ); 
-
-        // $content Contains the output string.
-        $content = curl_exec($ch);
-
-        // Close curl resource to free up system resources.
+        // Clear CURL object.
         curl_close($ch);
 
-        // Returns the state of the LED.
-        return $content;
+        if ($err)
+        {
+            throw new \Exception($err);
+        }
+
+        // Convert to JSON.
+        return json_decode($response, true);
     }
              
     /**
