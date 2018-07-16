@@ -131,6 +131,28 @@ class Neuron
         return $uart.'_'.$dev_id.'_'.$value;
     }
 
+    private function getDeviceParameter($parameter)
+    {
+        $value = null;
+
+        foreach ($this->json_data as $field)
+        {
+            if(isset($field['circuit']) &&
+                isset($field['dev'])&&
+                isset($field[$parameter]))
+            {
+                if(($field['circuit'] == '1') &&
+                    ($field['dev'] == 'neuron'))
+                {
+                    $value = $field[$parameter];
+                    break;
+                }
+            }
+        }
+
+        return $value;
+    }
+
 #endregion
 
     #region Public Methods
@@ -179,26 +201,19 @@ class Neuron
      */
     public function getLastComTime()
     {
-        /** @var integer UART register value. $value */
-        $value = null;
-
-        foreach ($this->json_data as $field)
-        {
-            if(isset($field['circuit']) &&
-                isset($field['dev'])&&
-                isset($field['last_comm']))
-            {
-                if(($field['circuit'] == '1') &&
-                    ($field['dev'] == 'neuron'))
-                {
-                    $value = $field['last_comm'];
-                    break;
-                }
-            }
-        }
-
-        return $value;
+        return $this->getDeviceParameter('last_comm');
     }
+
+    /**
+     * Get device model.
+     *
+     * @return null, string
+     */
+    public function getDeviceModel()
+    {
+        return $this->getDeviceParameter('model');
+    }
+
 
     /**
      * Get register data of the device.

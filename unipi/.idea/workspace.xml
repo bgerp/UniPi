@@ -32,17 +32,17 @@
       <file leaf-file-name="Neuron.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Neuron.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="177" column="28" selection-start-line="177" selection-start-column="28" selection-end-line="177" selection-end-column="28" />
+            <state relative-caret-position="595">
+              <caret line="209" column="27" selection-start-line="209" selection-start-column="27" selection-end-line="209" selection-end-column="27" />
               <folding>
                 <element signature="e#159#176#0#PHP" />
                 <element signature="e#505#524#0#PHP" />
                 <element signature="e#809#836#0#PHP" />
-                <element signature="e#1766#1789#0#PHP" />
                 <element signature="e#1795#2191#0#PHP" />
                 <element signature="n#generateUartCircuit#0;n#Neuron#0;n#!!top" />
                 <element signature="e#1762#1941#0#PHP" />
                 <element signature="n#update#0;n#Neuron#0;n#!!top" />
+                <element signature="e#3453#3535#0#PHP" />
                 <element signature="e#2664#2887#0#PHP" />
                 <element signature="n#getUartRegister#0;n#Neuron#0;n#!!top" />
                 <element signature="e#3506#3788#0#PHP" />
@@ -247,12 +247,12 @@
       <workItem from="1531411658563" duration="495000" />
       <workItem from="1531466072807" duration="16869000" />
       <workItem from="1531722932564" duration="72000" />
-      <workItem from="1531725955184" duration="2763000" />
+      <workItem from="1531725955184" duration="3074000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57699000" />
+    <option name="totallyTimeSpent" value="58010000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
@@ -333,11 +333,11 @@
             <element signature="e#159#176#0#PHP" />
             <element signature="e#505#524#0#PHP" />
             <element signature="e#809#836#0#PHP" />
-            <element signature="e#1766#1789#0#PHP" />
             <element signature="e#1795#2191#0#PHP" />
             <element signature="n#generateUartCircuit#0;n#Neuron#0;n#!!top" />
             <element signature="e#1762#1941#0#PHP" />
             <element signature="n#update#0;n#Neuron#0;n#!!top" />
+            <element signature="e#3453#3535#0#PHP" />
             <element signature="e#2664#2887#0#PHP" />
             <element signature="n#getUartRegister#0;n#Neuron#0;n#!!top" />
             <element signature="e#3506#3788#0#PHP" />
@@ -409,11 +409,11 @@
             <element signature="e#159#176#0#PHP" />
             <element signature="e#505#524#0#PHP" />
             <element signature="e#809#836#0#PHP" />
-            <element signature="e#1766#1789#0#PHP" />
             <element signature="e#1795#2191#0#PHP" />
             <element signature="n#generateUartCircuit#0;n#Neuron#0;n#!!top" />
             <element signature="e#1762#1941#0#PHP" />
             <element signature="n#update#0;n#Neuron#0;n#!!top" />
+            <element signature="e#3453#3535#0#PHP" />
             <element signature="e#2664#2887#0#PHP" />
             <element signature="n#getUartRegister#0;n#Neuron#0;n#!!top" />
             <element signature="e#3506#3788#0#PHP" />
@@ -686,17 +686,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Neuron.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="177" column="28" selection-start-line="177" selection-start-column="28" selection-end-line="177" selection-end-column="28" />
+        <state relative-caret-position="595">
+          <caret line="209" column="27" selection-start-line="209" selection-start-column="27" selection-end-line="209" selection-end-column="27" />
           <folding>
             <element signature="e#159#176#0#PHP" />
             <element signature="e#505#524#0#PHP" />
             <element signature="e#809#836#0#PHP" />
-            <element signature="e#1766#1789#0#PHP" />
             <element signature="e#1795#2191#0#PHP" />
             <element signature="n#generateUartCircuit#0;n#Neuron#0;n#!!top" />
             <element signature="e#1762#1941#0#PHP" />
             <element signature="n#update#0;n#Neuron#0;n#!!top" />
+            <element signature="e#3453#3535#0#PHP" />
             <element signature="e#2664#2887#0#PHP" />
             <element signature="n#getUartRegister#0;n#Neuron#0;n#!!top" />
             <element signature="e#3506#3788#0#PHP" />
