@@ -10,11 +10,12 @@ require_once('SDM120.php');
 require_once('SDM630.php');
 
 //
-require_once ('modbusDeviceFactory.php');
+require_once ('ModbusDeviceFactory.php');
 
 //
 require_once('evok\EvokDevCfgGenerator.php');
 
+//
 require_once ('evok\EvokDevUpdater.php');
 // Start
 
@@ -31,6 +32,9 @@ $uart = "UART_1";
 // Master device.
 $neuron = new Neuron($ip, $port);
 $neuron->update();
+$last_comm = $neuron->getLastComTime();
+echo ("<br>Last communication time: ".$last_comm.'[s]<br>');
+
 testLeds($neuron);
 testRelays($neuron);
 //testUart($neuron);

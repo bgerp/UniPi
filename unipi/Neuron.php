@@ -103,6 +103,38 @@ class Neuron
 
     #endregion
 
+    #region Private Methods
+
+    /**
+     * Generate key data for $json_string.
+     * This method is directly related to the EVOK REST API.
+     *
+     * @param string $uart UART interface.
+     * @param integer $dev_id Modbus ID address of the device.
+     * @param integer $register Modbus Registers address of the device.
+     * @return string Circuit
+     * @see https://evok.api-docs.io/1.0/json/get-uart-state-json
+     */
+    private function generateUartCircuit($uart, $dev_id, $register)
+    {
+        $value = 0;
+
+        if($register < 10)
+        {
+            $value = '0'.$register;
+        }
+        else
+        {
+            $value = $register;
+        }
+
+        return $uart.'_'.$dev_id.'_'.$value;
+    }
+
+#endregion
+
+    #region Public Methods
+
     /**
      * Make request to the device to update the data.
      * This method is directly related to the EVOK REST API.
@@ -132,10 +164,40 @@ class Neuron
         if ($err)
         {
           echo "cURL Error #:" . $err;
-        }        
+        }
+
+        //print_r($response);
         
         // Convert to JSON.
         $this->json_data = json_decode($response, true);
+    }
+
+    /**
+     * Get last connection time. [seconds]
+     *
+     * @return null, integer
+     */
+    public function getLastComTime()
+    {
+        /** @var integer UART register value. $value */
+        $value = null;
+
+        foreach ($this->json_data as $field)
+        {
+            if(isset($field['circuit']) &&
+                isset($field['dev'])&&
+                isset($field['last_comm']))
+            {
+                if(($field['circuit'] == '1') &&
+                    ($field['dev'] == 'neuron'))
+                {
+                    $value = $field['last_comm'];
+                    break;
+                }
+            }
+        }
+
+        return $value;
     }
 
     /**
@@ -235,32 +297,6 @@ class Neuron
         
         // Convert to JSON.
         return json_decode($response, true); 
-    }
-
-    /**
-     * Generate key data for $json_string.
-     * This method is directly related to the EVOK REST API.
-     *
-     * @param string $uart UART interface.
-     * @param integer $dev_id Modbus ID address of the device.
-     * @param integer $register Modbus Registers address of the device.
-     * @return string Circuit
-     * @see https://evok.api-docs.io/1.0/json/get-uart-state-json
-     */
-    private function generateUartCircuit($uart, $dev_id, $register)
-    {
-        $value = 0;
-        
-        if($register < 10)
-        {
-            $value = '0'.$register;
-        }
-        else
-        {
-            $value = $register;
-        }
-        
-        return $uart.'_'.$dev_id.'_'.$value;
     }
 
     /**
@@ -371,4 +407,7 @@ class Neuron
         return $content;
     }
 
+    #endregion
+
 }
+
