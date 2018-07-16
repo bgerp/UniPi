@@ -131,6 +131,12 @@ class Neuron
         return $uart.'_'.$dev_id.'_'.$value;
     }
 
+    /**
+     * Get device parameter.
+     *
+     * @param string $parameter Parameter name.
+     * @return null, mixed
+     */
     private function getDeviceParameter($parameter)
     {
         $value = null;
@@ -153,7 +159,7 @@ class Neuron
         return $value;
     }
 
-#endregion
+    #endregion
 
     #region Public Methods
 

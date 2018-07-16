@@ -33,21 +33,25 @@ $uart = "UART_1";
 $neuron = new Neuron($ip, $port);
 $neuron->update();
 
-$last_comm = $neuron->getLastComTime();
-echo ("<br>Last communication time: ".$last_comm.'[s]<br>');
-$model = $neuron->getDeviceModel();
-echo ("<br>Model: ".$model.'<br>');
-$sn = $neuron->getDeviceSerialNumber();
-echo ("<br>Serial Number: ".$sn.'<br>');
-$ver = $neuron->getDeviceVersion();
-echo ("<br>Vrsion : ".$ver.'<br>');
-
+testDeviceParameters($neuron);
 testLeds($neuron);
 testRelays($neuron);
 //testUart($neuron);
 //testOutput($neuron);
 $sdm120_parameters_values = getSDM120Parameters($neuron, $uart, $device_id);
 $sdm630_parameters_values = getSDM630Parameters($neuron, $uart, $device_id);
+
+function testDeviceParameters($neuron)
+{
+    $last_comm = $neuron->getLastComTime();
+    echo ("<br>Last communication time: ".$last_comm.'[s]<br>');
+    $model = $neuron->getDeviceModel();
+    echo ("<br>Model: ".$model.'<br>');
+    $sn = $neuron->getDeviceSerialNumber();
+    echo ("<br>Serial Number: ".$sn.'<br>');
+    $ver = $neuron->getDeviceVersion();
+    echo ("<br>Vrsion : ".$ver.'<br>');
+}
 
 function testRelays($neuron)
 {
