@@ -1,227 +1,127 @@
 <?php
 
+require_once ('ModbusDevice.php');
+
 /**
  * This class is dedicated to read data from SDM630 energy meter.
  *
  * @see https://bg-etech.de/download/manual/SDM630Register1-5.pdf
  */
-class SDM630
+class SDM630 extends ModbusDevice
 {
 
-    /**
-     * @var array Registers description. Page 2 - 5.
-     * @see https://bg-etech.de/download/manual/SDM630Register1-5.pdf
-     */
-    const registers = array(
-        "Phase1LineToNeutralVolts" => array(0, 1),
-        "Phase2LineToNeutralVolts" => array(2, 3),
-        "Phase3LineToNeutralVolts" => array(4, 5),
-        "Phase1Current" => array(6, 7),
-        "Phase2Current" => array(8, 9),
-        "Phase3Current" => array(10, 11),
-        "Phase1Power" => array(12, 13),
-        "Phase2Power" => array(14, 15),
-        "Phase3Power" => array(16, 17),
-        "Phase1VoltAmps" => array(18, 19),
-        "Phase2VoltAmps" => array(20, 21),
-        "Phase3VoltAmps" => array(22, 23),
-        "Phase1VoltAmpsReactive" => array(24, 25),
-        "Phase2VoltAmpsReactive" => array(26, 27),
-        "Phase3VoltAmpsReactive" => array(28, 29),
-        "Phase1PowerFactor" => array(30, 31),
-        "Phase2PowerFactor" => array(32, 33),
-        "Phase3PowerFactor" => array(34, 35),
-        "Phase1PhaseAngle" => array(36, 37),
-        "Phase2PhaseAngle" => array(38, 39),
-        "Phase3PhaseAngle" => array(40, 41),
-        "AverageLineToNeutralVolts" => array(42, 43),
-        "AverageLineCurrent" => array(46, 47),
-        "SumOfLineCurrents" => array(48, 49),
-        "TotalSystemPower" => array(52, 53),
-        "TotalSystemVoltAmps" => array(56, 57),
-        "TotalSystemVar" => array(60, 61),
-        "TotalSystemPowerFactor" => array(62, 63),
-        "TotalSystemPhaseAngle" => array(66, 67),
-        "FrequencyOfSupplyVoltages" => array(70, 71),
-        "TotalImportKwh" => array(72, 73),
-        "TotalExportKwh" => array(74, 75),
-        "TotalImportKvarh" => array(76, 77),
-        "TotalExportKvarh" => array(78, 79),
-        "TotalVah" => array(80, 81),
-        "Ah" => array(82, 83),
-        "TotalSystemPowerDemand" => array(84, 85),
-        "MaximumTotalSystemPowerDemand" => array(86, 87),
-        "TotalSystemVaDemand" => array(100, 101),
-        "MaximumTotalSystemVaDemand" => array(102, 103),
-        "NeutralCurrentDemand" => array(104, 105),
-        "MaximumNeutralCurrentDemand" => array(106, 107),
-        "Line1ToLine2Volts" => array(200, 201),
-        "Line2ToLine3Volts" => array(202, 203),
-        "Line3ToLine1Volts" => array(204, 205),
-        "AverageLineToLineVolts" => array(206, 207),
-        "NeutralCurrent" => array(224, 225),
-        "Phase1L/NVoltsThd" => array(234, 235),
-        "Phase2L/NVoltsThd" => array(236, 237),
-        "Phase3L/NVoltsThd" => array(238, 239),
-        "Phase1CurrentThd" => array(240, 241),
-        "Phase2CurrentThd" => array(242, 243),
-        "Phase3CurrentThd" => array(244, 245),
-        "AverageLineToNeutralVoltsThd" => array(248, 249),
-        "AverageLineCurrentThd" => array(250, 251),
-        "Phase1CurrentDemand" => array(257, 258),
-        "Phase2CurrentDemand" => array(259, 260),
-        "Phase3CurrentDemand" => array(261, 262),
-        "MaximumPhase1CurrentDemand" => array(263, 264),
-        "MaximumPhase2CurrentDemand" => array(265, 266),
-        "MaximumPhase3CurrentDemand" => array(267, 268),
-        "Line1ToLine2VoltsThd" => array(333, 334),
-        "Line2ToLine3VoltsThd" => array(335, 336),
-        "Line3ToLine1VoltsThd" => array(337, 338),
-        "AverageLineToLineVoltsThd" => array(339, 340),
-        "TotalKwh" => array(341, 342),
-        "TotalKvarh" => array(343, 344),
-        "L1ImportKwh" => array(345, 346),
-        "L2ImportKwh" => array(347, 348),
-        "L3ImportKwh" => array(349, 350),
-        "L1ExportKwh" => array(351, 352),
-        "L2ExportKwh" => array(353, 354),
-        "L3ExportKwh" => array(355, 356),
-        "L1TotalKwh" => array(357, 358),
-        "L2TotalKwh" => array(359, 360),
-        "L3TotalKwh" => array(361, 362),
-        "L1ImportKvarh" => array(363, 364),
-        "L2ImportKvarh" => array(365, 366),
-        "L3ImportKvarh" => array(367, 368),
-        "L1ExportKvarh" => array(369, 370),
-        "L2ExportKvarh" => array(371, 372),
-        "L3ExportKvarh" => array(373, 374),
-        "L1TotalKvarh" => array(375, 376),
-        "L2TotalKvarh" => array(377, 378),
-        "L3TotalKvarh" => array(379, 380)
-    );
+    #region Constructor
 
     /**
-     * Get registers IDs.
-     *
-     * @return array IDs.
+     * SDM120 constructor.
      */
-    public static function getRegistersIDs()
+    public function __construct()
     {
-        /** @var array Registers IDs $registers_ids */
-        $registers_ids = array();
-
-        foreach(SDM630::registers as $key => $value)
-        {
-            array_push($registers_ids, $value[0], $value[1]);
-        }
-
-        return $registers_ids;
+        $registers = $this->createSettings();
+        parent::__construct($registers);
     }
 
-    /**
-     * Get parameters names.
-     *
-     * @return array names.
-     */
-    public static function getParameters()
+    #endregion
+
+    #region Private Methods
+
+    private function createSettings()
     {
-        /** @var array Parameters names $parameters */
-        $parameters = array();
+        /**
+         * @var array Registers description. Page 2 - 5.
+         * @see https://bg-etech.de/download/manual/SDM630Register1-5.pdf
+         */
+        $registers = array();
 
-        foreach(SDM630::registers as $key => $value)
-        {
-            array_push($parameters, $key);
-        }
+        $registers[0] = new ModbusParameter('Phase1LineToNeutralVolts', 'V', ModbusDataTypes::FLOAT, array(0, 1));
+        $registers[1] = new ModbusParameter('Phase2LineToNeutralVolts', 'V', ModbusDataTypes::FLOAT, array(2, 3));
+        $registers[2] = new ModbusParameter('Phase3LineToNeutralVolts', 'V', ModbusDataTypes::FLOAT, array(4, 5));
+        $registers[3] = new ModbusParameter('Phase1Current', 'A', ModbusDataTypes::FLOAT, array(6, 7));
+        $registers[4] = new ModbusParameter('Phase2Current', 'A', ModbusDataTypes::FLOAT, array(8, 9));
+        $registers[5] = new ModbusParameter('Phase3Current', 'A', ModbusDataTypes::FLOAT, array(10, 11));
+        $registers[6] = new ModbusParameter('Phase1Power', 'W', ModbusDataTypes::FLOAT, array(12, 13));
+        $registers[7] = new ModbusParameter('Phase2Power', 'W', ModbusDataTypes::FLOAT, array(14, 15));
+        $registers[8] = new ModbusParameter('Phase3Power', 'W', ModbusDataTypes::FLOAT, array(16, 17));
+        $registers[9] = new ModbusParameter('Phase1VoltAmps', 'VA', ModbusDataTypes::FLOAT, array(18, 19));
+        $registers[10] = new ModbusParameter('Phase2VoltAmps', 'VA', ModbusDataTypes::FLOAT, array(20, 21));
+        $registers[11] = new ModbusParameter('Phase3VoltAmps', 'VA', ModbusDataTypes::FLOAT, array(22, 23));
+        $registers[12] = new ModbusParameter('Phase1VoltAmpsReactive', 'VAr', ModbusDataTypes::FLOAT, array(24, 25));
+        $registers[13] = new ModbusParameter('Phase2VoltAmpsReactive', 'VAr', ModbusDataTypes::FLOAT, array(26, 27));
+        $registers[14] = new ModbusParameter('Phase3VoltAmpsReactive', 'VAr', ModbusDataTypes::FLOAT, array(28, 29));
+        $registers[15] = new ModbusParameter('Phase1PowerFactor', 'Deg', ModbusDataTypes::FLOAT, array(30, 31));
+        $registers[16] = new ModbusParameter('Phase2PowerFactor', 'Deg', ModbusDataTypes::FLOAT, array(32, 33));
+        $registers[17] = new ModbusParameter('Phase3PowerFactor', 'Deg', ModbusDataTypes::FLOAT, array(34, 35));
+        $registers[18] = new ModbusParameter('Phase1PhaseAngle', 'Deg', ModbusDataTypes::FLOAT, array(36, 37));
+        $registers[19] = new ModbusParameter('Phase2PhaseAngle', 'Deg', ModbusDataTypes::FLOAT, array(38, 39));
+        $registers[20] = new ModbusParameter('Phase3PhaseAngle', 'Deg', ModbusDataTypes::FLOAT, array(40, 41));
+        $registers[21] = new ModbusParameter('AverageLineToNeutralVolts', 'V', ModbusDataTypes::FLOAT, array(42, 43));
+        $registers[22] = new ModbusParameter('AverageLineCurrent', 'A', ModbusDataTypes::FLOAT, array(46, 47));
+        $registers[23] = new ModbusParameter('SumOfLineCurrents', 'A', ModbusDataTypes::FLOAT, array(48, 49));
+        $registers[24] = new ModbusParameter('TotalSystemPower', 'W', ModbusDataTypes::FLOAT, array(52, 53));
+        $registers[25] = new ModbusParameter('TotalSystemVoltAmps', 'VA', ModbusDataTypes::FLOAT, array(56, 57));
+        $registers[26] = new ModbusParameter('TotalSystemVAr', 'VA', ModbusDataTypes::FLOAT, array(60, 61));
+        $registers[27] = new ModbusParameter('TotalSystemPowerFactor', 'Deg', ModbusDataTypes::FLOAT, array(62, 63));
+        $registers[28] = new ModbusParameter('TotalSystemPhaseAngle', 'Deg', ModbusDataTypes::FLOAT, array(66, 67));
+        $registers[29] = new ModbusParameter('FrequencyOfSupplyVoltages', 'Hz', ModbusDataTypes::FLOAT, array(70, 71));
+        $registers[30] = new ModbusParameter('TotalImportkWh', 'kWh', ModbusDataTypes::FLOAT, array(72, 73));
+        $registers[31] = new ModbusParameter('TotalExportkWh', 'kWh', ModbusDataTypes::FLOAT, array(74, 75));
+        $registers[32] = new ModbusParameter('TotalImportkVAarh', 'kVArh', ModbusDataTypes::FLOAT, array(76, 77));
+        $registers[33] = new ModbusParameter('TotalExportkVAarh', 'kVArh', ModbusDataTypes::FLOAT, array(78, 79));
+        $registers[34] = new ModbusParameter('TotalVAh', 'kVAh', ModbusDataTypes::FLOAT, array(80, 81));
+        $registers[35] = new ModbusParameter('Ah', 'Ah', ModbusDataTypes::FLOAT, array(82, 83));
+        $registers[36] = new ModbusParameter('TotalSystemPowerDemand', 'VA', ModbusDataTypes::FLOAT, array(84, 85));
+        $registers[37] = new ModbusParameter('MaximumTotalSystemPowerDemand', 'VA', ModbusDataTypes::FLOAT, array(86, 87));
+        $registers[38] = new ModbusParameter('TotalSystemVaDemand', 'VA', ModbusDataTypes::FLOAT, array(100, 101));
+        $registers[39] = new ModbusParameter('MaximumTotalSystemVADemand', 'VA', ModbusDataTypes::FLOAT, array(102, 103));
+        $registers[40] = new ModbusParameter('NeutralCurrentDemand', 'A', ModbusDataTypes::FLOAT, array(104, 105));
+        $registers[41] = new ModbusParameter('MaximumNeutralCurrentDemand', 'A', ModbusDataTypes::FLOAT, array(106, 107));
+        $registers[42] = new ModbusParameter('Line1ToLine2Volts', 'V', ModbusDataTypes::FLOAT, array(200, 201));
+        $registers[43] = new ModbusParameter('Line2ToLine3Volts', 'V', ModbusDataTypes::FLOAT, array(202, 203));
+        $registers[44] = new ModbusParameter('Line3ToLine1Volts', 'V', ModbusDataTypes::FLOAT, array(204, 205));
+        $registers[45] = new ModbusParameter('AverageLineToLineVolts', 'V', ModbusDataTypes::FLOAT, array(206, 207));
+        $registers[46] = new ModbusParameter('NeutralCurrent', 'A', ModbusDataTypes::FLOAT, array(224, 225));
+        $registers[47] = new ModbusParameter('Phase1L/NVoltsThd', '%', ModbusDataTypes::FLOAT, array(234, 235));
+        $registers[48] = new ModbusParameter('Phase2L/NVoltsThd', '%', ModbusDataTypes::FLOAT, array(236, 237));
+        $registers[49] = new ModbusParameter('Phase3L/NVoltsThd', '%', ModbusDataTypes::FLOAT, array(238, 239));
+        $registers[50] = new ModbusParameter('Phase1CurrentThd', '%', ModbusDataTypes::FLOAT, array(240, 241));
+        $registers[51] = new ModbusParameter('Phase2CurrentThd', '%', ModbusDataTypes::FLOAT, array(242, 243));
+        $registers[52] = new ModbusParameter('Phase3CurrentThd', '%', ModbusDataTypes::FLOAT, array(244, 245));
+        $registers[53] = new ModbusParameter('AverageLineToNeutralVoltsTHD', '%', ModbusDataTypes::FLOAT, array(248, 249));
+        $registers[54] = new ModbusParameter('AverageLineCurrentTHD', '%', ModbusDataTypes::FLOAT, array(250, 251));
+        $registers[55] = new ModbusParameter('Phase1CurrentDemand', 'A', ModbusDataTypes::FLOAT, array(257, 258));
+        $registers[56] = new ModbusParameter('Phase2CurrentDemand', 'A', ModbusDataTypes::FLOAT, array(259, 260));
+        $registers[57] = new ModbusParameter('Phase3CurrentDemand', 'A', ModbusDataTypes::FLOAT, array(261, 262));
+        $registers[58] = new ModbusParameter('MaximumPhase1CurrentDemand', 'A', ModbusDataTypes::FLOAT, array(263, 264));
+        $registers[59] = new ModbusParameter('MaximumPhase2CurrentDemand', 'A', ModbusDataTypes::FLOAT, array(265, 266));
+        $registers[60] = new ModbusParameter('MaximumPhase3CurrentDemand', 'A', ModbusDataTypes::FLOAT, array(267, 268));
+        $registers[61] = new ModbusParameter('Line1ToLine2VoltsTHD', '%', ModbusDataTypes::FLOAT, array(333, 334));
+        $registers[62] = new ModbusParameter('Line2ToLine3VoltsTHD', '%', ModbusDataTypes::FLOAT, array(335, 336));
+        $registers[63] = new ModbusParameter('Line3ToLine1VoltsTHD', '%', ModbusDataTypes::FLOAT, array(337, 338));
+        $registers[64] = new ModbusParameter('AverageLineToLineVoltsTHD', '%', ModbusDataTypes::FLOAT, array(339, 340));
+        $registers[65] = new ModbusParameter('TotalkWh', 'kWh', ModbusDataTypes::FLOAT, array(341, 342));
+        $registers[66] = new ModbusParameter('TotalkVArh', 'kVArh', ModbusDataTypes::FLOAT, array(343, 344));
+        $registers[67] = new ModbusParameter('L1ImportkWh', 'kWh', ModbusDataTypes::FLOAT, array(345, 346));
+        $registers[68] = new ModbusParameter('L2ImportkWh', 'kWh', ModbusDataTypes::FLOAT, array(347, 348));
+        $registers[69] = new ModbusParameter('L3ImportkWh', 'kWh', ModbusDataTypes::FLOAT, array(349, 350));
+        $registers[70] = new ModbusParameter('L1ExportkWh', 'kWh', ModbusDataTypes::FLOAT, array(351, 352));
+        $registers[71] = new ModbusParameter('L2ExportkWh', 'kWh', ModbusDataTypes::FLOAT, array(353, 354));
+        $registers[72] = new ModbusParameter('L3ExportkWh', 'kWh', ModbusDataTypes::FLOAT, array(355, 356));
+        $registers[73] = new ModbusParameter('L1TotalkWh', 'kWh', ModbusDataTypes::FLOAT, array(357, 358));
+        $registers[74] = new ModbusParameter('L2TotalkWh', 'kWh', ModbusDataTypes::FLOAT, array(359, 360));
+        $registers[75] = new ModbusParameter('L3TotalkWh', 'kWh', ModbusDataTypes::FLOAT, array(361, 362));
+        $registers[76] = new ModbusParameter('L1ImportkVArh', 'kVArh', ModbusDataTypes::FLOAT, array(363, 364));
+        $registers[77] = new ModbusParameter('L2ImportkVArh', 'kVArh', ModbusDataTypes::FLOAT, array(365, 366));
+        $registers[78] = new ModbusParameter('L3ImportkVArh', 'kVArh', ModbusDataTypes::FLOAT, array(367, 368));
+        $registers[79] = new ModbusParameter('L1ExportkVArh', 'kVArh', ModbusDataTypes::FLOAT, array(369, 370));
+        $registers[80] = new ModbusParameter('L2ExportkVArh', 'kVArh', ModbusDataTypes::FLOAT, array(371, 372));
+        $registers[81] = new ModbusParameter('L3ExportkVArh', 'kVArh', ModbusDataTypes::FLOAT, array(373, 374));
+        $registers[82] = new ModbusParameter('L1TotalkVArh', 'kVArh', ModbusDataTypes::FLOAT, array(375, 376));
+        $registers[83] = new ModbusParameter('L2TotalkVArh', 'kVArh', ModbusDataTypes::FLOAT, array(377, 378));
+        $registers[84] = new ModbusParameter('L3TotalkVArh', 'kVArh', ModbusDataTypes::FLOAT, array(379, 380));
 
-        return $parameters;
+        return $registers;
     }
 
-    /**
-     * Get value by the content.
-     *
-     * @param string $parameter_name Parameter name.
-     * @param array $registers Device parameter name.
-     * @return float Parameter value.
-     * @throws Exception InvalidArgumentException
-     */
-    public static function getParammeter($registers, $parameter_name)
-    {
-        if (empty($parameter_name))
-        {
-            throw new InvalidArgumentException("Invalid parameter name.");
-        }
-
-        if (empty(SDM630::registers[$parameter_name]))
-        {
-            throw new InvalidArgumentException("Missing parameter.");
-        }
-
-        /** @var integer Register 1 index $reg1 */
-        $reg1 = $registers[SDM630::registers[$parameter_name][0]];
-        /** @var integer Register 2 index $reg2 */
-        $reg2 = $registers[SDM630::registers[$parameter_name][1]];
-
-        return SDM630::registersToFlaot($reg1, $reg2);
-    }
-
-    /**
-     * Get value byt the content.
-     *
-     * @param object $content MODBUS data.
-     * @return array Parameters values.
-     * @throws Exception InvalidArgumentException
-     */
-    public static function getParammeters($registers)
-    {
-        /** @var array Values $values */
-        $values = array();
-
-        /** @var array Parameters $parameters */
-        $parameters = SDM630::getParameters();
-
-        if (empty($registers))
-        {
-            throw new InvalidArgumentException("Invalid registers.");
-        }
-
-        foreach($parameters as $parameter)
-        {
-            $values[$parameter] = SDM630::getParammeter($registers, $parameter);
-        }
-
-        return $values;
-    }
-
-    /**
-     * Convert two registers to float.
-     *
-     * @param integer $reg_value1 Register 1.
-     * @param integer $reg_value2 Register 2.
-     * @return float Value from two registers.
-     */
-    private static function registersToFlaot($reg_value1, $reg_value2)
-    {
-
-        /** @var array Packet binary data. $bin_data */
-        $bin_data = null;
-
-        /** @var float Unpacked float value. $value */
-        $value = NAN;
-
-        if (isset($reg_value1))
-        {
-            if (isset($reg_value2))
-            {
-                $bin_data = pack("nn", $reg_value1, $reg_value2);
-            }
-        }
-
-        if ($bin_data != null)
-        {
-            $value = unpack("G", $bin_data)[1];
-        }
-
-        return $value;
-    }
+    #endregion
 
 }

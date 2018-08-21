@@ -14,19 +14,101 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="51" column="57" lean-forward="true" selection-start-line="51" selection-start-column="57" selection-end-line="51" selection-end-column="57" />
+            <state relative-caret-position="170">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
               <folding>
+                <element signature="n#testDeviceParameters#0;n#!!top" />
                 <element signature="n#testRelays#0;n#!!top" />
                 <element signature="n#testLeds#0;n#!!top" />
                 <element signature="n#testUart#0;n#!!top" />
                 <element signature="n#testOutput#0;n#!!top" />
                 <element signature="n#uploadHardwareDefinition#0;n#!!top" />
-                <element signature="n#getSDM120Parameters#0;n#!!top" />
                 <element signature="n#getSDM630Parameters#0;n#!!top" />
+                <element signature="n#head#0;n#html#0;n#!!top" />
+                <element signature="n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="evok.conf" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evok.conf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1938">
+              <caret line="114" selection-start-line="114" selection-end-line="114" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SDM120.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SDM120.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="423">
+              <caret line="54" column="70" selection-start-line="54" selection-start-column="70" selection-end-line="54" selection-end-column="70" />
+              <folding>
+                <element signature="e#201#220#0#PHP" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SDM630.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SDM630.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="235">
+              <caret line="102" column="55" selection-start-line="102" selection-start-column="55" selection-end-line="102" selection-end-column="55" />
+              <folding>
+                <element signature="e#311#330#0#PHP" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EvokDevUpdater.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evok/EvokDevUpdater.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="499">
+              <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+              <folding>
+                <element signature="n#__construct#0;n#EvokDevUpdater#0;n#!!top" />
+                <element signature="n#restartService#0;n#EvokDevUpdater#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DelcpsPro.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DelcpsPro.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
+              <folding>
+                <element signature="e#185#204#0#PHP" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModbusDevice.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ModbusDevice.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-657">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+              <folding>
+                <element signature="e#876#946#0#PHP" />
+                <element signature="n#getRegistersIDs#0;n#ModbusDevice#0;n#!!top" />
+                <element signature="e#1543#1618#0#PHP" />
+                <element signature="n#getParametersNames#0;n#ModbusDevice#0;n#!!top" />
+                <element signature="e#2063#2260#0#PHP" />
+                <element signature="n#getParameterValue#0;n#ModbusDevice#0;n#!!top" />
+                <element signature="e#3177#3349#0#PHP" />
+                <element signature="n#getParametersValues#0;n#ModbusDevice#0;n#!!top" />
+                <element signature="e#3900#3923#0#PHP" />
+                <element signature="e#3929#4183#0#PHP" />
+                <element signature="n#convertParameter#0;n#ModbusDevice#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -35,79 +117,22 @@
       <file leaf-file-name="Neuron.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Neuron.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="689">
-              <caret line="477" lean-forward="true" selection-start-line="477" selection-end-line="477" />
+            <state relative-caret-position="489">
+              <caret line="194" column="4" selection-start-line="194" selection-start-column="4" selection-end-line="194" selection-end-column="4" />
               <folding>
                 <element signature="e#159#176#0#PHP" />
-                <element signature="e#505#524#0#PHP" />
                 <element signature="e#809#836#0#PHP" />
                 <element signature="e#1762#1785#0#PHP" />
-                <element signature="e#1795#2191#0#PHP" />
                 <element signature="n#generateUartCircuit#0;n#Neuron#0;n#!!top" />
-                <element signature="e#2488#2581#0#PHP" />
                 <element signature="n#getDeviceParameter#0;n#Neuron#0;n#!!top" />
-                <element signature="e#1762#1941#0#PHP" />
-                <element signature="n#update#0;n#Neuron#0;n#!!top" />
-                <element signature="e#3453#3535#0#PHP" />
+                <element signature="e#3832#3854#0#PHP" />
                 <element signature="n#getLastComTime#0;n#Neuron#0;n#!!top" />
-                <element signature="e#4194#4266#0#PHP" />
-                <element signature="n#getLastComTime#1;n#Neuron#0;n#!!top" />
-                <element signature="e#4371#4435#0#PHP" />
                 <element signature="n#getDeviceSerialNumber#0;n#Neuron#0;n#!!top" />
-                <element signature="e#4562#4620#0#PHP" />
                 <element signature="n#getDeviceVersion#0;n#Neuron#0;n#!!top" />
-                <element signature="e#2664#2887#0#PHP" />
-                <element signature="n#getUartRegister#0;n#Neuron#0;n#!!top" />
-                <element signature="e#3506#3788#0#PHP" />
-                <element signature="n#getUartRegisters#0;n#Neuron#0;n#!!top" />
-                <element signature="e#4244#4587#0#PHP" />
                 <element signature="n#setUartRegister#0;n#Neuron#0;n#!!top" />
-                <element signature="e#6285#6579#0#PHP" />
                 <element signature="n#turnLed#0;n#Neuron#0;n#!!top" />
-                <element signature="e#7329#7628#0#PHP" />
                 <element signature="n#turnRelay#0;n#Neuron#0;n#!!top" />
-                <element signature="e#8387#8705#0#PHP" />
                 <element signature="n#turnOutput#0;n#Neuron#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModbusDeviceFactory.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ModbusDeviceFactory.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="225" selection-start-line="225" selection-end-line="225" />
-              <folding>
-                <element signature="e#223#245#0#PHP" />
-                <element signature="e#251#411#0#PHP" />
-                <element signature="n#SDM120#0;n#ModbusDeviceFactory#0;n#!!top" />
-                <element signature="e#2878#3011#0#PHP" />
-                <element signature="n#SDM630#0;n#ModbusDeviceFactory#0;n#!!top" />
-                <element signature="e#12704#12786#0#PHP" />
-                <element signature="n#DelcosPro#0;n#ModbusDeviceFactory#0;n#!!top" />
-                <element signature="e#18036#18059#0#PHP" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SDM120.yaml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hw_definitions/SDM120.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1513">
-              <caret line="89" column="17" selection-start-line="89" selection-start-column="6" selection-end-line="89" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EvokDevUpdater.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evok/EvokDevUpdater.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="38" column="14" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
-              <folding>
-                <element signature="n#__construct#0;n#EvokDevUpdater#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -145,8 +170,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/SDM630.php" />
-        <option value="$PROJECT_DIR$/SDM120.php" />
         <option value="$PROJECT_DIR$/SDM630.yaml" />
         <option value="$PROJECT_DIR$/SDM120.yaml" />
         <option value="$PROJECT_DIR$/unipi/hw_definitions/README.md" />
@@ -164,8 +187,6 @@
         <option value="$PROJECT_DIR$/ModbusExampleDevice.php" />
         <option value="$PROJECT_DIR$/Delcos.php" />
         <option value="$PROJECT_DIR$/Data/BasicEnum.php" />
-        <option value="$PROJECT_DIR$/evok.conf" />
-        <option value="$PROJECT_DIR$/ModbusDevice.php" />
         <option value="$PROJECT_DIR$/ModbusRegister.php" />
         <option value="$PROJECT_DIR$/ModbusDataTypes.php" />
         <option value="$PROJECT_DIR$/ConfigurationGenerator/ConfigurationGenerator.php" />
@@ -173,11 +194,17 @@
         <option value="$PROJECT_DIR$/hw_definitions/DelcosPro.yaml" />
         <option value="$PROJECT_DIR$/hw_definitions/README.md" />
         <option value="$PROJECT_DIR$/ConfigurationGenerator/EvokDevCfgGenerator.php" />
-        <option value="$PROJECT_DIR$/ModbusDeviceFactory.php" />
         <option value="$PROJECT_DIR$/evok/EvokDevCfgGenerator.php" />
         <option value="$PROJECT_DIR$/evok/EvokDevUpdater.php" />
         <option value="$PROJECT_DIR$/Neuron.php" />
+        <option value="$PROJECT_DIR$/ModbusDevice.php" />
+        <option value="$PROJECT_DIR$/SDM120Test.php" />
+        <option value="$PROJECT_DIR$/ModbusDeviceFactory.php" />
+        <option value="$PROJECT_DIR$/DelcpsPro.php" />
+        <option value="$PROJECT_DIR$/evok.conf" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/SDM630.php" />
+        <option value="$PROJECT_DIR$/SDM120.php" />
       </list>
     </option>
   </component>
@@ -190,7 +217,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -200,6 +227,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -209,14 +237,12 @@
             </path>
             <path>
               <item name="unipi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="unipi" type="462c0819:PsiDirectoryNode" />
-              <item name="evok" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -260,29 +286,30 @@
       <workItem from="1531411658563" duration="495000" />
       <workItem from="1531466072807" duration="16869000" />
       <workItem from="1531722932564" duration="72000" />
-      <workItem from="1531725955184" duration="6517000" />
+      <workItem from="1531725955184" duration="8867000" />
+      <workItem from="1534760634966" duration="9817000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61453000" />
+    <option name="totallyTimeSpent" value="73620000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4978678" visible="true" weight="0.125" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.4978678" visible="true" weight="0.25052193" />
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="2" side_tool="true" visible="true" weight="0.32946146" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" visible="true" weight="0.3326226" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="7" />
       <window_info anchor="bottom" id="Version Control" order="4" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="7" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="3" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info id="Favorites" order="0" sideWeight="0.5021322" side_tool="true" weight="0.25052193" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.5" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
@@ -294,20 +321,20 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.5" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="7" />
-      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.4978678" visible="true" weight="0.25052193" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="4" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="7" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32942432" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="4" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info id="Favorites" order="0" sideWeight="0.5021322" side_tool="true" weight="0.25052193" />
@@ -321,22 +348,82 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="27" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/index.php</url>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="41" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ModbusDeviceFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3825">
+          <caret line="225" selection-start-line="225" selection-end-line="225" />
+          <folding>
+            <element signature="e#12704#12786#0#PHP" />
+            <element signature="e#18036#18059#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw_definitions/SDM120.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1513">
+          <caret line="89" column="17" selection-start-line="89" selection-start-column="6" selection-end-line="89" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evok/EvokDevUpdater.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="14" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
+          <folding>
+            <element signature="n#__construct#0;n#EvokDevUpdater#0;n#!!top" />
+            <element signature="n#addHardwareDefinition#0;n#EvokDevUpdater#0;n#!!top" />
+            <element signature="n#removeHardwareDefinition#0;n#EvokDevUpdater#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Neuron.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3060">
+          <caret line="180" column="43" selection-start-line="180" selection-start-column="43" selection-end-line="180" selection-end-column="43" />
+          <folding>
+            <element signature="e#159#176#0#PHP" />
+            <element signature="e#809#836#0#PHP" />
+            <element signature="e#1762#1785#0#PHP" />
+            <element signature="n#generateUartCircuit#0;n#Neuron#0;n#!!top" />
+            <element signature="n#getDeviceParameter#0;n#Neuron#0;n#!!top" />
+            <element signature="e#3832#3854#0#PHP" />
+            <element signature="n#getLastComTime#0;n#Neuron#0;n#!!top" />
+            <element signature="n#getDeviceSerialNumber#0;n#Neuron#0;n#!!top" />
+            <element signature="n#getDeviceVersion#0;n#Neuron#0;n#!!top" />
+            <element signature="n#setUartRegister#0;n#Neuron#0;n#!!top" />
+            <element signature="n#turnLed#0;n#Neuron#0;n#!!top" />
+            <element signature="n#turnRelay#0;n#Neuron#0;n#!!top" />
+            <element signature="n#turnOutput#0;n#Neuron#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
           <folding>
+            <element signature="n#testDeviceParameters#0;n#!!top" />
             <element signature="n#testRelays#0;n#!!top" />
             <element signature="n#testLeds#0;n#!!top" />
             <element signature="n#testUart#0;n#!!top" />
             <element signature="n#testOutput#0;n#!!top" />
             <element signature="n#uploadHardwareDefinition#0;n#!!top" />
-            <element signature="n#getSDM120Parameters#0;n#!!top" />
             <element signature="n#getSDM630Parameters#0;n#!!top" />
+            <element signature="n#head#0;n#html#0;n#!!top" />
+            <element signature="n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
@@ -347,34 +434,17 @@
           <caret line="26" selection-start-line="26" selection-end-line="30" selection-end-column="8" />
           <folding>
             <element signature="e#159#176#0#PHP" />
-            <element signature="e#505#524#0#PHP" />
             <element signature="e#809#836#0#PHP" />
             <element signature="e#1762#1785#0#PHP" />
-            <element signature="e#1795#2191#0#PHP" />
             <element signature="n#generateUartCircuit#0;n#Neuron#0;n#!!top" />
-            <element signature="e#2488#2581#0#PHP" />
             <element signature="n#getDeviceParameter#0;n#Neuron#0;n#!!top" />
-            <element signature="e#1762#1941#0#PHP" />
-            <element signature="n#update#0;n#Neuron#0;n#!!top" />
-            <element signature="e#3453#3535#0#PHP" />
+            <element signature="e#3832#3854#0#PHP" />
             <element signature="n#getLastComTime#0;n#Neuron#0;n#!!top" />
-            <element signature="e#4194#4266#0#PHP" />
-            <element signature="n#getLastComTime#1;n#Neuron#0;n#!!top" />
-            <element signature="e#4371#4435#0#PHP" />
             <element signature="n#getDeviceSerialNumber#0;n#Neuron#0;n#!!top" />
-            <element signature="e#4562#4620#0#PHP" />
             <element signature="n#getDeviceVersion#0;n#Neuron#0;n#!!top" />
-            <element signature="e#2664#2887#0#PHP" />
-            <element signature="n#getUartRegister#0;n#Neuron#0;n#!!top" />
-            <element signature="e#3506#3788#0#PHP" />
-            <element signature="n#getUartRegisters#0;n#Neuron#0;n#!!top" />
-            <element signature="e#4244#4587#0#PHP" />
             <element signature="n#setUartRegister#0;n#Neuron#0;n#!!top" />
-            <element signature="e#6285#6579#0#PHP" />
             <element signature="n#turnLed#0;n#Neuron#0;n#!!top" />
-            <element signature="e#7329#7628#0#PHP" />
             <element signature="n#turnRelay#0;n#Neuron#0;n#!!top" />
-            <element signature="e#8387#8705#0#PHP" />
             <element signature="n#turnOutput#0;n#Neuron#0;n#!!top" />
           </folding>
         </state>
@@ -385,13 +455,7 @@
         <state relative-caret-position="289">
           <caret line="225" selection-start-line="225" selection-end-line="225" />
           <folding>
-            <element signature="e#223#245#0#PHP" />
-            <element signature="e#251#411#0#PHP" />
-            <element signature="n#SDM120#0;n#ModbusDeviceFactory#0;n#!!top" />
-            <element signature="e#2878#3011#0#PHP" />
-            <element signature="n#SDM630#0;n#ModbusDeviceFactory#0;n#!!top" />
             <element signature="e#12704#12786#0#PHP" />
-            <element signature="n#DelcosPro#0;n#ModbusDeviceFactory#0;n#!!top" />
             <element signature="e#18036#18059#0#PHP" />
           </folding>
         </state>
@@ -410,6 +474,8 @@
           <caret line="38" column="14" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
           <folding>
             <element signature="n#__construct#0;n#EvokDevUpdater#0;n#!!top" />
+            <element signature="n#addHardwareDefinition#0;n#EvokDevUpdater#0;n#!!top" />
+            <element signature="n#removeHardwareDefinition#0;n#EvokDevUpdater#0;n#!!top" />
           </folding>
         </state>
       </provider>
@@ -419,13 +485,15 @@
         <state relative-caret-position="170">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
           <folding>
+            <element signature="n#testDeviceParameters#0;n#!!top" />
             <element signature="n#testRelays#0;n#!!top" />
             <element signature="n#testLeds#0;n#!!top" />
             <element signature="n#testUart#0;n#!!top" />
             <element signature="n#testOutput#0;n#!!top" />
             <element signature="n#uploadHardwareDefinition#0;n#!!top" />
-            <element signature="n#getSDM120Parameters#0;n#!!top" />
             <element signature="n#getSDM630Parameters#0;n#!!top" />
+            <element signature="n#head#0;n#html#0;n#!!top" />
+            <element signature="n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
@@ -436,34 +504,17 @@
           <caret line="26" selection-start-line="26" selection-end-line="30" selection-end-column="8" />
           <folding>
             <element signature="e#159#176#0#PHP" />
-            <element signature="e#505#524#0#PHP" />
             <element signature="e#809#836#0#PHP" />
             <element signature="e#1762#1785#0#PHP" />
-            <element signature="e#1795#2191#0#PHP" />
             <element signature="n#generateUartCircuit#0;n#Neuron#0;n#!!top" />
-            <element signature="e#2488#2581#0#PHP" />
             <element signature="n#getDeviceParameter#0;n#Neuron#0;n#!!top" />
-            <element signature="e#1762#1941#0#PHP" />
-            <element signature="n#update#0;n#Neuron#0;n#!!top" />
-            <element signature="e#3453#3535#0#PHP" />
+            <element signature="e#3832#3854#0#PHP" />
             <element signature="n#getLastComTime#0;n#Neuron#0;n#!!top" />
-            <element signature="e#4194#4266#0#PHP" />
-            <element signature="n#getLastComTime#1;n#Neuron#0;n#!!top" />
-            <element signature="e#4371#4435#0#PHP" />
             <element signature="n#getDeviceSerialNumber#0;n#Neuron#0;n#!!top" />
-            <element signature="e#4562#4620#0#PHP" />
             <element signature="n#getDeviceVersion#0;n#Neuron#0;n#!!top" />
-            <element signature="e#2664#2887#0#PHP" />
-            <element signature="n#getUartRegister#0;n#Neuron#0;n#!!top" />
-            <element signature="e#3506#3788#0#PHP" />
-            <element signature="n#getUartRegisters#0;n#Neuron#0;n#!!top" />
-            <element signature="e#4244#4587#0#PHP" />
             <element signature="n#setUartRegister#0;n#Neuron#0;n#!!top" />
-            <element signature="e#6285#6579#0#PHP" />
             <element signature="n#turnLed#0;n#Neuron#0;n#!!top" />
-            <element signature="e#7329#7628#0#PHP" />
             <element signature="n#turnRelay#0;n#Neuron#0;n#!!top" />
-            <element signature="e#8387#8705#0#PHP" />
             <element signature="n#turnOutput#0;n#Neuron#0;n#!!top" />
           </folding>
         </state>
@@ -474,13 +525,7 @@
         <state relative-caret-position="3825">
           <caret line="225" lean-forward="true" selection-start-line="225" selection-end-line="225" />
           <folding>
-            <element signature="e#223#245#0#PHP" />
-            <element signature="e#251#411#0#PHP" />
-            <element signature="n#SDM120#0;n#ModbusDeviceFactory#0;n#!!top" />
-            <element signature="e#2878#3011#0#PHP" />
-            <element signature="n#SDM630#0;n#ModbusDeviceFactory#0;n#!!top" />
             <element signature="e#12704#12786#0#PHP" />
-            <element signature="n#DelcosPro#0;n#ModbusDeviceFactory#0;n#!!top" />
             <element signature="e#18036#18059#0#PHP" />
           </folding>
         </state>
@@ -499,6 +544,8 @@
           <caret line="38" column="14" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
           <folding>
             <element signature="n#__construct#0;n#EvokDevUpdater#0;n#!!top" />
+            <element signature="n#addHardwareDefinition#0;n#EvokDevUpdater#0;n#!!top" />
+            <element signature="n#removeHardwareDefinition#0;n#EvokDevUpdater#0;n#!!top" />
           </folding>
         </state>
       </provider>
@@ -508,13 +555,15 @@
         <state relative-caret-position="697">
           <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
           <folding>
+            <element signature="n#testDeviceParameters#0;n#!!top" />
             <element signature="n#testRelays#0;n#!!top" />
             <element signature="n#testLeds#0;n#!!top" />
             <element signature="n#testUart#0;n#!!top" />
             <element signature="n#testOutput#0;n#!!top" />
             <element signature="n#uploadHardwareDefinition#0;n#!!top" />
-            <element signature="n#getSDM120Parameters#0;n#!!top" />
             <element signature="n#getSDM630Parameters#0;n#!!top" />
+            <element signature="n#head#0;n#html#0;n#!!top" />
+            <element signature="n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
@@ -531,13 +580,7 @@
         <state relative-caret-position="2499">
           <caret line="147" column="7" selection-start-line="147" selection-start-column="7" selection-end-line="147" selection-end-column="7" />
           <folding>
-            <element signature="e#223#245#0#PHP" />
-            <element signature="e#251#411#0#PHP" />
-            <element signature="n#SDM120#0;n#ModbusDeviceFactory#0;n#!!top" />
-            <element signature="e#2878#3011#0#PHP" />
-            <element signature="n#SDM630#0;n#ModbusDeviceFactory#0;n#!!top" />
             <element signature="e#12704#12786#0#PHP" />
-            <element signature="n#DelcosPro#0;n#ModbusDeviceFactory#0;n#!!top" />
             <element signature="e#18036#18059#0#PHP" />
           </folding>
         </state>
@@ -562,13 +605,7 @@
         <state relative-caret-position="1054">
           <caret line="181" lean-forward="true" selection-start-line="181" selection-end-line="181" />
           <folding>
-            <element signature="e#223#245#0#PHP" />
-            <element signature="e#251#411#0#PHP" />
-            <element signature="n#SDM120#0;n#ModbusDeviceFactory#0;n#!!top" />
-            <element signature="e#2878#3011#0#PHP" />
-            <element signature="n#SDM630#0;n#ModbusDeviceFactory#0;n#!!top" />
             <element signature="e#12704#12786#0#PHP" />
-            <element signature="n#DelcosPro#0;n#ModbusDeviceFactory#0;n#!!top" />
             <element signature="e#18036#18059#0#PHP" />
           </folding>
         </state>
@@ -612,28 +649,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evok.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Delcos.php" />
-    <entry file="file://$PROJECT_DIR$/SDM630.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SDM120.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" selection-start-line="10" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ModbusDataTypes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -658,20 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ModbusDevice.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evok/EvokDevCfgGenerator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="134" column="4" selection-start-line="134" selection-start-column="4" selection-end-line="134" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hw_definitions/DelcosPro.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1488">
@@ -686,84 +688,151 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/evok/EvokDevCfgGenerator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="132" lean-forward="true" selection-start-line="132" selection-end-line="132" />
+          <folding>
+            <element signature="e#86#103#0#PHP" />
+            <element signature="e#230#249#0#PHP" />
+            <element signature="e#374#401#0#PHP" />
+            <element signature="e#624#693#0#PHP" />
+            <element signature="n#addType#0;n#EvokDevCfgGenerator#0;n#!!top" />
+            <element signature="e#792#1067#0#PHP" />
+            <element signature="n#addModbusRegisterBlocks#0;n#EvokDevCfgGenerator#0;n#!!top" />
+            <element signature="e#1606#1866#0#PHP" />
+            <element signature="n#addModbusFeatures#0;n#EvokDevCfgGenerator#0;n#!!top" />
+            <element signature="e#2364#2696#0#PHP" />
+            <element signature="n#createFromParameters#0;n#EvokDevCfgGenerator#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SDM120Test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/NodeJS/mysql.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/ModbusDeviceFactory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="225" selection-start-line="225" selection-end-line="225" />
+        <state relative-caret-position="136">
+          <caret line="21" selection-start-line="21" selection-end-line="70" />
           <folding>
-            <element signature="e#223#245#0#PHP" />
-            <element signature="e#251#411#0#PHP" />
-            <element signature="n#SDM120#0;n#ModbusDeviceFactory#0;n#!!top" />
-            <element signature="e#2878#3011#0#PHP" />
-            <element signature="n#SDM630#0;n#ModbusDeviceFactory#0;n#!!top" />
             <element signature="e#12704#12786#0#PHP" />
-            <element signature="n#DelcosPro#0;n#ModbusDeviceFactory#0;n#!!top" />
             <element signature="e#18036#18059#0#PHP" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evok/EvokDevUpdater.php">
+    <entry file="file://$PROJECT_DIR$/ModbusDevice.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="38" column="14" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
+        <state relative-caret-position="-657">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
-            <element signature="n#__construct#0;n#EvokDevUpdater#0;n#!!top" />
+            <element signature="e#876#946#0#PHP" />
+            <element signature="n#getRegistersIDs#0;n#ModbusDevice#0;n#!!top" />
+            <element signature="e#1543#1618#0#PHP" />
+            <element signature="n#getParametersNames#0;n#ModbusDevice#0;n#!!top" />
+            <element signature="e#2063#2260#0#PHP" />
+            <element signature="n#getParameterValue#0;n#ModbusDevice#0;n#!!top" />
+            <element signature="e#3177#3349#0#PHP" />
+            <element signature="n#getParametersValues#0;n#ModbusDevice#0;n#!!top" />
+            <element signature="e#3900#3923#0#PHP" />
+            <element signature="e#3929#4183#0#PHP" />
+            <element signature="n#convertParameter#0;n#ModbusDevice#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evok.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1938">
+          <caret line="114" selection-start-line="114" selection-end-line="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="n#testDeviceParameters#0;n#!!top" />
+            <element signature="n#testRelays#0;n#!!top" />
+            <element signature="n#testLeds#0;n#!!top" />
+            <element signature="n#testUart#0;n#!!top" />
+            <element signature="n#testOutput#0;n#!!top" />
+            <element signature="n#uploadHardwareDefinition#0;n#!!top" />
+            <element signature="n#getSDM630Parameters#0;n#!!top" />
+            <element signature="n#head#0;n#html#0;n#!!top" />
+            <element signature="n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Neuron.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="689">
-          <caret line="477" lean-forward="true" selection-start-line="477" selection-end-line="477" />
+        <state relative-caret-position="489">
+          <caret line="194" column="4" selection-start-line="194" selection-start-column="4" selection-end-line="194" selection-end-column="4" />
           <folding>
             <element signature="e#159#176#0#PHP" />
-            <element signature="e#505#524#0#PHP" />
             <element signature="e#809#836#0#PHP" />
             <element signature="e#1762#1785#0#PHP" />
-            <element signature="e#1795#2191#0#PHP" />
             <element signature="n#generateUartCircuit#0;n#Neuron#0;n#!!top" />
-            <element signature="e#2488#2581#0#PHP" />
             <element signature="n#getDeviceParameter#0;n#Neuron#0;n#!!top" />
-            <element signature="e#1762#1941#0#PHP" />
-            <element signature="n#update#0;n#Neuron#0;n#!!top" />
-            <element signature="e#3453#3535#0#PHP" />
+            <element signature="e#3832#3854#0#PHP" />
             <element signature="n#getLastComTime#0;n#Neuron#0;n#!!top" />
-            <element signature="e#4194#4266#0#PHP" />
-            <element signature="n#getLastComTime#1;n#Neuron#0;n#!!top" />
-            <element signature="e#4371#4435#0#PHP" />
             <element signature="n#getDeviceSerialNumber#0;n#Neuron#0;n#!!top" />
-            <element signature="e#4562#4620#0#PHP" />
             <element signature="n#getDeviceVersion#0;n#Neuron#0;n#!!top" />
-            <element signature="e#2664#2887#0#PHP" />
-            <element signature="n#getUartRegister#0;n#Neuron#0;n#!!top" />
-            <element signature="e#3506#3788#0#PHP" />
-            <element signature="n#getUartRegisters#0;n#Neuron#0;n#!!top" />
-            <element signature="e#4244#4587#0#PHP" />
             <element signature="n#setUartRegister#0;n#Neuron#0;n#!!top" />
-            <element signature="e#6285#6579#0#PHP" />
             <element signature="n#turnLed#0;n#Neuron#0;n#!!top" />
-            <element signature="e#7329#7628#0#PHP" />
             <element signature="n#turnRelay#0;n#Neuron#0;n#!!top" />
-            <element signature="e#8387#8705#0#PHP" />
             <element signature="n#turnOutput#0;n#Neuron#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/DelcpsPro.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="51" column="57" lean-forward="true" selection-start-line="51" selection-start-column="57" selection-end-line="51" selection-end-column="57" />
+        <state relative-caret-position="255">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
           <folding>
-            <element signature="n#testRelays#0;n#!!top" />
-            <element signature="n#testLeds#0;n#!!top" />
-            <element signature="n#testUart#0;n#!!top" />
-            <element signature="n#testOutput#0;n#!!top" />
-            <element signature="n#uploadHardwareDefinition#0;n#!!top" />
-            <element signature="n#getSDM120Parameters#0;n#!!top" />
-            <element signature="n#getSDM630Parameters#0;n#!!top" />
+            <element signature="e#185#204#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evok/EvokDevUpdater.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+          <folding>
+            <element signature="n#__construct#0;n#EvokDevUpdater#0;n#!!top" />
+            <element signature="n#restartService#0;n#EvokDevUpdater#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SDM120.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="54" column="70" selection-start-line="54" selection-start-column="70" selection-end-line="54" selection-end-column="70" />
+          <folding>
+            <element signature="e#201#220#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SDM630.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="102" column="55" selection-start-line="102" selection-start-column="55" selection-end-line="102" selection-end-column="55" />
+          <folding>
+            <element signature="e#311#330#0#PHP" />
           </folding>
         </state>
       </provider>

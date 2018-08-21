@@ -10,28 +10,31 @@ require_once('SDM120.php');
 require_once('SDM630.php');
 
 //
-require_once ('ModbusDeviceFactory.php');
-
-//
 require_once('evok\EvokDevCfgGenerator.php');
 
 //
 require_once ('evok\EvokDevUpdater.php');
 // Start
 
-
-
-
 // From DB.
 $ip = "176.33.1.25";
 //$ip = "10.0.0.111";
 $port = 8080;
-$device_id = 2;
-$uart = "UART_1";
+$device_id = 2; // Global device ID.
+$uart = "UART_1"; // MODBUS Device ID.
 
 // Master device.
 $neuron = new Neuron($ip, $port);
 $neuron->update();
+$neuron->getParameter('input', '');
+$neuron->getParameter('relay', '');
+$neuron->getParameter('ai', '');
+$neuron->getParameter('ao', '');
+$neuron->getParameter('led', '');
+$neuron->getParameter('wd', '');
+$neuron->getParameter('neuron', '');
+$neuron->getParameter('uart', '');
+$neuron->getParameter('register', '');
 
 testDeviceParameters($neuron);
 testLeds($neuron);
@@ -144,7 +147,7 @@ function getSDM120Parameters($neuron, $uart, $device_id)
     {
 
         /** @var object $sdm120 SDM120 Device.*/
-        $sdm120 = ModbusDeviceFactory::SDM120();
+        $sdm120 = new SDM120();
 
         /** @var Modbus registers IDs. $sdm120_registers_indexes */
         $sdm120_registers_ids = $sdm120->getRegistersIDs();
@@ -170,7 +173,7 @@ function getSDM630Parameters($neuron, $uart, $device_id)
     try
     {
         /** @var object $sdm630 SDM630 Device.*/
-        $sdm360 = ModbusDeviceFactory::SDM630();
+        $sdm360 = new SDM630();
 
         /** @var Modbus registers IDs. $sdm630_registers_ids */
         $sdm630_registers_ids = $sdm360->getRegistersIDs();

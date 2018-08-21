@@ -159,6 +159,37 @@ class Neuron
         return $value;
     }
 
+    private function generateDeviceCircuit($major_index, $minor_index)
+    {
+        $index = '';
+
+        $index = $major_index.'_'.sprintf("%02d", $minor_index);
+
+        return $index;
+    }
+
+    public function getParameter($device, $circuit)
+    {
+        $value = 0;
+
+        $test = 0;
+        foreach ($this->json_data as $field)
+        {
+            if(isset($field['dev'])
+            && isset($field['circuit']))
+            {
+                if($field['dev'] == $device)
+                {
+                    echo $test.' : '.$field['circuit'].'<br>';
+                }
+            }
+            $test++;
+        }
+
+        return $value;
+    }
+
+
     #endregion
 
     #region Public Methods

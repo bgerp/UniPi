@@ -146,7 +146,6 @@ class ModbusDevice
         return $value;
     }
 
-
     /**
      * Returns parameters valus.
      *
