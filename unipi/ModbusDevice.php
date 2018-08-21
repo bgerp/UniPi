@@ -1,5 +1,9 @@
 <?php
 
+require_once ('ModbusDataTypes.php');
+
+require_once ('ModbusParameter.php');
+
 /**
  * This class is MODBUS composite device.
  */
