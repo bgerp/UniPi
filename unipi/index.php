@@ -9,6 +9,9 @@ require_once('SDM120.php');
 // SDM630 API.
 require_once('SDM630.php');
 
+// SDM630 API.
+require_once('SDM630MCT.php');
+
 //
 require_once('evok\EvokDevCfgGenerator.php');
 
@@ -17,11 +20,11 @@ require_once ('evok\EvokDevUpdater.php');
 // Start
 
 // From DB.
-$ip = "176.33.1.25";
+$ip = "176.33.1.153";
 //$ip = "10.0.0.111";
-$port = 8080;
+$port = 80;
 $device_id = 2; // Global device ID.
-$uart = "UART_1"; // MODBUS Device ID.
+$uart = "UART_4"; // MODBUS Device ID.
 
 // Master device.
 $neuron = new Neuron($ip, $port);
@@ -37,12 +40,13 @@ $neuron->getParameter('uart', '');
 $neuron->getParameter('register', '');
 
 testDeviceParameters($neuron);
-testLeds($neuron);
-testRelays($neuron);
+//testLeds($neuron);
+//testRelays($neuron);
 //testUart($neuron);
 //testOutput($neuron);
-$sdm120_parameters_values = getSDM120Parameters($neuron, $uart, $device_id);
-$sdm630_parameters_values = getSDM630Parameters($neuron, $uart, $device_id);
+//$sdm120_parameters_values = getSDM120Parameters($neuron, $uart, $device_id);
+//$sdm630_parameters_values = getSDM630Parameters($neuron, $uart, $device_id);
+$sdm630_parameters_values = getSDM630MCTParameters($neuron, $uart, $device_id);
 
 function testDeviceParameters($neuron)
 {
@@ -60,7 +64,7 @@ function testDeviceParameters($neuron)
     $sn = $neuron->getDeviceSerialNumber();
     echo ("<br>Serial Number: ".$sn.'<br>');
     $ver = $neuron->getDeviceVersion();
-    echo ("<br>Vrsion : ".$ver.'<br>');
+    echo ("<br>Version : ".$ver.'<br>');
 }
 
 function testRelays($neuron)
@@ -141,7 +145,7 @@ function uploadHardwareDefinition()
 
 function getSDM120Parameters($neuron, $uart, $device_id)
 {
-    $sdm120_parameters_values = null;
+    $parameters_values = null;
 
     try
     {
@@ -155,34 +159,34 @@ function getSDM120Parameters($neuron, $uart, $device_id)
         /** @var Modbus registers values. $sdm120_registers_values */
         $sdm120_registers_values = $neuron->getUartRegisters($uart, $device_id, $sdm120_registers_ids);
 
-        /** @var Parameters values. $sdm120_parameters_values */
-        $sdm120_parameters_values = $sdm120->getParametersValues($sdm120_registers_values);
+        /** @var Parameters values. $parameters_values */
+        $parameters_values = $sdm120->getParametersValues($sdm120_registers_values);
     }
     catch(Exception $e)
     {
         echo("Problem with 1 phase power meter.");
     }
 
-    return $sdm120_parameters_values;
+    return $parameters_values;
 }
 
 function getSDM630Parameters($neuron, $uart, $device_id)
 {
-    $sdm630_parameters_values = null;
+    $parameters_values = null;
 
     try
     {
         /** @var object $sdm630 SDM630 Device.*/
         $sdm360 = new SDM630();
-
+        
         /** @var Modbus registers IDs. $sdm630_registers_ids */
         $sdm630_registers_ids = $sdm360->getRegistersIDs();
 
         /** @var Modbus registers values. $sdm630_registers_values */
         $sdm630_registers_values = $neuron->getUartRegisters($uart, $device_id, $sdm630_registers_ids);
 
-        /** @var Parameters values. $sdm630_parameters_values */
-        $sdm630_parameters_values = $sdm360->getParametersValues($sdm630_registers_values);
+        /** @var Parameters values. $parameters_values */
+        $parameters_values = $sdm360->getParametersValues($sdm630_registers_values);
     }
     catch(Exception $e)
     {
@@ -190,7 +194,34 @@ function getSDM630Parameters($neuron, $uart, $device_id)
     }
 
 
-    return $sdm630_parameters_values;
+    return $parameters_values;
+}
+
+function getSDM630MCTParameters($neuron, $uart, $device_id)
+{
+    $parameters_values = null;
+
+    try
+    {
+        /** @var object $sdm630 SDM630MCT Device.*/
+        $sdm360 = new SDM630MCT();
+        
+        /** @var Modbus registers IDs. $sdm630_registers_ids */
+        $sdm630_registers_ids = $sdm360->getRegistersIDs();
+
+        /** @var Modbus registers values. $sdm630_registers_values */
+        $sdm630_registers_values = $neuron->getUartRegisters($uart, $device_id, $sdm630_registers_ids);
+
+        /** @var Parameters values. $parameters_values */
+        $parameters_values = $sdm360->getParametersValues($sdm630_registers_values);
+    }
+    catch(Exception $e)
+    {
+        echo("Problem with 3 phase power meter.");
+    }
+
+
+    return $parameters_values;
 }
 
 ?>
@@ -202,75 +233,78 @@ function getSDM630Parameters($neuron, $uart, $device_id)
         <title>SDM120 - 2</title>
     </head>
     <body>
-        <br>
-        <br>
-        <font size="5">1 phase</font>
-        <br>
-        <table>
-            <col width="170">
-            <col width="160">
-            <col width="60">
-            <tr>
-                <th>Name</th>
-                <th>Value</th>
-                <th>Unit</th>
-            </tr>
-            <tr>
-                <td>Voltage</td>
-                <td><?php echo number_format($sdm120_parameters_values['Voltage'], 3); ?></td>
-                <td>[V]<td>
-            </tr>
-            <tr>
-                <td>Current</td>
-                <td><?php echo number_format($sdm120_parameters_values['Current'], 3); ?></td>
-                <td>[A]</td>
-            </tr>
-            <tr>
-                <td>Active Power</td>
-                <td><?php echo number_format($sdm120_parameters_values['ActivePower'], 3); ?></td>
-                <td>[W]</td>
-            </tr>
-            <tr>
-                <td>Apparent Power</td>
-                <td><?php echo number_format($sdm120_parameters_values['ApparentPower'], 3); ?></td>
-                <td>[W]</td>
-            </tr>
-            <tr>
-                <td>Reactive Power</td>
-                <td><?php echo number_format($sdm120_parameters_values['ReactivePower'], 3); ?></td>
-                <td>[W]</td>
-            </tr>
-            <tr>
-                <td>Power Factor</td>
-                <td><?php echo number_format($sdm120_parameters_values['PowerFactor'], 3); ?></td>
-                <td>[&#176]</td>
-            </tr>
-            <tr>
-                <td>Frequency</td>
-                <td><?php echo number_format($sdm120_parameters_values['Frequency'], 3); ?></td>
-                <td>[Hz]</td>
-            </tr>
-            <tr>
-                <td>Import Active Energy</td>
-                <td><?php echo number_format($sdm120_parameters_values['ImportActiveEnergy'], 3); ?></td>
-                <td>[W]</td>
-            </tr>
-            <tr>
-                <td>Export Active Energy</td>
-                <td><?php echo number_format($sdm120_parameters_values['ExportActiveEnergy'], 3); ?></td>
-                <td>[W]</td>
-            </tr>
-            <tr>
-                <td>Import Reactive Energy</td>
-                <td><?php echo number_format($sdm120_parameters_values['ImportReactiveEnergy'], 3); ?></td>
-                <td>[W]</td>
-            </tr>
-            <tr>
-                <td>Export Reactive Energy</td>
-                <td><?php echo number_format($sdm120_parameters_values['ExportReactiveEnergy'], 3); ?></td>
-                <td>[W]</td>
-            </tr>
-        </table>
+        <!-- <br> -->
+        <!-- <br> -->
+        <!-- <font size="5">1 phase</font> -->
+        <!-- <br> -->
+        <!-- <table> -->
+            <!-- <col width="170"> -->
+            <!-- <col width="160"> -->
+            <!-- <col width="60"> -->
+            <!-- <tr> -->
+                <!-- <th>Name</th> -->
+                <!-- <th>Value</th> -->
+                <!-- <th>Unit</th> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <td>Voltage</td> -->
+                <!-- <td><?php echo number_format($sdm120_parameters_values['Voltage'], 3); ?></td> -->
+                <!-- <td>[V]<td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <td>Current</td> -->
+                <!-- <td><?php echo number_format($sdm120_parameters_values['Current'], 3); ?></td> -->
+                <!-- <td>[A]</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <td>Active Power</td> -->
+                <!-- <td><?php echo number_format($sdm120_parameters_values['ActivePower'], 3); ?></td> -->
+                <!-- <td>[W]</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <td>Apparent Power</td> -->
+                <!-- <td><?php echo number_format($sdm120_parameters_values['ApparentPower'], 3); ?></td> -->
+                <!-- <td>[W]</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <td>Reactive Power</td> -->
+                <!-- <td><?php echo number_format($sdm120_parameters_values['ReactivePower'], 3); ?></td> -->
+                <!-- <td>[W]</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <td>Power Factor</td> -->
+                <!-- <td><?php echo number_format($sdm120_parameters_values['PowerFactor'], 3); ?></td> -->
+                <!-- <td>[&#176]</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <td>Frequency</td> -->
+                <!-- <td><?php echo number_format($sdm120_parameters_values['Frequency'], 3); ?></td> -->
+                <!-- <td>[Hz]</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <td>Import Active Energy</td> -->
+                <!-- <td><?php echo number_format($sdm120_parameters_values['ImportActiveEnergy'], 3); ?></td> -->
+                <!-- <td>[W]</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <td>Export Active Energy</td> -->
+                <!-- <td><?php echo number_format($sdm120_parameters_values['ExportActiveEnergy'], 3); ?></td> -->
+                <!-- <td>[W]</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <td>Import Reactive Energy</td> -->
+                <!-- <td><?php echo number_format($sdm120_parameters_values['ImportReactiveEnergy'], 3); ?></td> -->
+                <!-- <td>[W]</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <td>Export Reactive Energy</td> -->
+                <!-- <td><?php echo number_format($sdm120_parameters_values['ExportReactiveEnergy'], 3); ?></td> -->
+                <!-- <td>[W]</td> -->
+            <!-- </tr> -->
+        <!-- </table> -->
+        <?php 
+        //print_r($parameters_values);
+        ?>
         <br>
         <br>
         <p style="font-size:110%;">3 phase</p>
@@ -304,30 +338,30 @@ function getSDM630Parameters($neuron, $uart, $device_id)
             </tr>
             <tr>
                 <td>Power</td>
-                <td><?php echo number_format($sdm630_parameters_values['Phase1Power'], 3); ?></td>
-                <td><?php echo number_format($sdm630_parameters_values['Phase2Power'], 3); ?></td>
-                <td><?php echo number_format($sdm630_parameters_values['Phase3Power'], 3); ?></td>
+                <td><?php echo number_format($sdm630_parameters_values['Phase1ActivePower'], 3); ?></td>
+                <td><?php echo number_format($sdm630_parameters_values['Phase2ActivePower'], 3); ?></td>
+                <td><?php echo number_format($sdm630_parameters_values['Phase3ActivePower'], 3); ?></td>
                 <td>[W]<td>
             </tr>
             <tr>
                 <td>Volt amps.</td>
-                <td><?php echo number_format($sdm630_parameters_values['Phase1VoltAmps'], 3); ?></td>
-                <td><?php echo number_format($sdm630_parameters_values['Phase2VoltAmps'], 3); ?></td>
-                <td><?php echo number_format($sdm630_parameters_values['Phase3VoltAmps'], 3); ?></td>
+                <td><?php echo number_format($sdm630_parameters_values['Phase1ApparentPower'], 3); ?></td>
+                <td><?php echo number_format($sdm630_parameters_values['Phase2ApparentPower'], 3); ?></td>
+                <td><?php echo number_format($sdm630_parameters_values['Phase3ApparentPower'], 3); ?></td>
                 <td>[VA]<td>
             </tr>
             <tr>
                 <td>Volt amps reactive</td>
-                <td><?php echo number_format($sdm630_parameters_values['Phase1VoltAmpsReactive'], 3); ?></td>
-                <td><?php echo number_format($sdm630_parameters_values['Phase2VoltAmpsReactive'], 3); ?></td>
-                <td><?php echo number_format($sdm630_parameters_values['Phase3VoltAmpsReactive'], 3); ?></td>
+                <td><?php echo number_format($sdm630_parameters_values['Phase1ReactivePower'], 3); ?></td>
+                <td><?php echo number_format($sdm630_parameters_values['Phase2ReactivePower'], 3); ?></td>
+                <td><?php echo number_format($sdm630_parameters_values['Phase3ReactivePower'], 3); ?></td>
                 <td>[VAr]<td>
             </tr>
             <tr>
                 <td>Power factor</td>
-                <td><?php echo number_format($sdm630_parameters_values['Phase1PowerFactor'], 3); ?></td>
-                <td><?php echo number_format($sdm630_parameters_values['Phase2PowerFactor'], 3); ?></td>
-                <td><?php echo number_format($sdm630_parameters_values['Phase3PowerFactor'], 3); ?></td>
+                <td><?php echo number_format($sdm630_parameters_values['Phase1PowerFactor(1)'], 3); ?></td>
+                <td><?php echo number_format($sdm630_parameters_values['Phase2PowerFactor(1)'], 3); ?></td>
+                <td><?php echo number_format($sdm630_parameters_values['Phase3PowerFactor(1)'], 3); ?></td>
                 <td>[&#176]<td>
             </tr>
         </table>

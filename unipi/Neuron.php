@@ -117,18 +117,8 @@ class Neuron
      */
     private function generateUartCircuit($uart, $dev_id, $register)
     {
-        $value = 0;
-
-        if($register < 10)
-        {
-            $value = '0'.$register;
-        }
-        else
-        {
-            $value = $register;
-        }
-
-        return $uart.'_'.$dev_id.'_'.$value;
+        $circuit = $uart.'_'.$dev_id.'_'.$register.'_inp';
+        return $circuit;
     }
 
     /**
@@ -300,7 +290,6 @@ class Neuron
                 }
             }
         }
-
         return $value;
     }
 
@@ -326,7 +315,6 @@ class Neuron
         {
             $values[$register] = $this->getUartRegister($uart, $dev_id, $register);
         }
-
         return $values;
     }
 

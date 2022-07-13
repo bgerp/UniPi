@@ -5,7 +5,7 @@ require_once ('ModbusDevice.php');
 /**
  * This class is dedicated to read data from SDM630 energy meter.
  *
- * @see https://bg-etech.de/download/manual/SDM630Register1-5.pdf
+ * @see https://www.eastroneurope.com/images/uploads/products/protocol/SDM630_MODBUS_Protocol.pdf
  */
 class SDM630 extends ModbusDevice
 {
@@ -13,7 +13,7 @@ class SDM630 extends ModbusDevice
     #region Constructor
 
     /**
-     * SDM120 constructor.
+     * SDM630 constructor.
      */
     public function __construct()
     {
@@ -29,7 +29,7 @@ class SDM630 extends ModbusDevice
     {
         /**
          * @var array Registers description. Page 2 - 5.
-         * @see https://bg-etech.de/download/manual/SDM630Register1-5.pdf
+         * @see https://www.eastroneurope.com/images/uploads/products/protocol/SDM630_MODBUS_Protocol.pdf
          */
         $registers = array();
 

@@ -232,7 +232,6 @@ class ModbusDevice
                 "nn",
                 $registers_data[$registers[0]],
                 $registers_data[$registers[1]]);
-
             $value = unpack("G", $bin_data)[1];
         }
 
