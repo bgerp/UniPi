@@ -1,0 +1,64 @@
+---
+type: SDM630MCT_short
+modbus_register_blocks:
+    - board_index : 1
+      start_reg : 30
+      count : 2
+      frequency : 1
+      type: input
+    - board_index : 1
+      start_reg : 32
+      count : 2
+      frequency : 1
+      type: input
+    - board_index : 1
+      start_reg : 34
+      count : 2
+      frequency : 1
+      type: input
+    - board_index : 1
+      start_reg : 52
+      count : 2
+      frequency : 1
+      type: input
+    - board_index : 1
+      start_reg : 72
+      count : 2
+      frequency : 1
+      type: input
+    - board_index : 1
+      start_reg : 74
+      count : 2
+      frequency : 1
+      type: input
+modbus_features:
+    - type : REGISTER
+      major_group : 1
+      count : 2
+      start_reg : 30
+      reg_type: input
+    - type : REGISTER
+      major_group : 1
+      count : 2
+      start_reg : 32
+      reg_type: input
+    - type : REGISTER
+      major_group : 1
+      count : 2
+      start_reg : 34
+      reg_type: input
+    - type : REGISTER
+      major_group : 1
+      count : 2
+      start_reg : 52
+      reg_type: input
+    - type : REGISTER
+      major_group : 1
+      count : 2
+      start_reg : 72
+      reg_type: input
+    - type : REGISTER
+      major_group : 1
+      count : 2
+      start_reg : 74
+      reg_type: input
